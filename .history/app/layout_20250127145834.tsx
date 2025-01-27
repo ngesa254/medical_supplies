@@ -9,8 +9,6 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }
