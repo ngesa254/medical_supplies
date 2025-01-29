@@ -159,11 +159,11 @@ __turbopack_esm__({
     "default": (()=>Welcome)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-'use client';
+"use client";
 ;
 function Welcome() {
     // Hardcoded userName for demonstration
-    const userName = 'Ngesa';
+    const userName = "Ngesa";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -877,38 +877,38 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 //       <div className="flex h-screen bg-gray-900 text-white">
 //         {/* Sidebar */}
 //         <div className="w-16 bg-gray-800 flex flex-col items-center py-4 border-r border-gray-700">
-//           <button 
+//           <button
 //             className="p-2 hover:bg-gray-700 rounded-lg mb-8"
 //             aria-label="Menu"
 //           >
 //             <Menu className="w-6 h-6" />
 //           </button>
-//           <button 
+//           <button
 //             className="p-2 hover:bg-gray-700 rounded-lg mb-4"
 //             aria-label="New chat"
 //           >
 //             <span className="text-2xl">+</span>
 //           </button>
 //           <div className="mt-auto flex flex-col gap-4">
-//             <button 
+//             <button
 //               className="p-2 hover:bg-gray-700 rounded-lg"
 //               aria-label="Favorites"
 //             >
 //               <Heart className="w-6 h-6" />
 //             </button>
-//             <button 
+//             <button
 //               className="p-2 hover:bg-gray-700 rounded-lg"
 //               aria-label="Help"
 //             >
 //               <HelpCircle className="w-6 h-6" />
 //             </button>
-//             <button 
+//             <button
 //               className="p-2 hover:bg-gray-700 rounded-lg"
 //               aria-label="History"
 //             >
 //               <Clock className="w-6 h-6" />
 //             </button>
-//             <button 
+//             <button
 //               className="p-2 hover:bg-gray-700 rounded-lg"
 //               aria-label="Settings"
 //             >
@@ -948,7 +948,7 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 //                   placeholder="Ask Medical Supplies..."
 //                   className="flex-1 bg-transparent focus:outline-none"
 //                 />
-//                 <button 
+//                 <button
 //                   className="ml-2"
 //                   aria-label="Send message"
 //                 >
@@ -1015,7 +1015,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Sidebar.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Welcome$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Welcome.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Chat/Chat.tsx [app-ssr] (ecmascript)");
-'use client';
+"use client";
 ;
 ;
 ;
@@ -1035,7 +1035,7 @@ function Home() {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 373,
+                    lineNumber: 364,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1043,31 +1043,31 @@ function Home() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Welcome$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 378,
+                            lineNumber: 369,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             onFileUpload: handleFileUpload
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 381,
+                            lineNumber: 372,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 376,
+                    lineNumber: 367,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 370,
+            lineNumber: 362,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 369,
+        lineNumber: 361,
         columnNumber: 5
     }, this);
 }

@@ -160,11 +160,11 @@ __turbopack_esm__({
     "default": (()=>Welcome)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-'use client';
+"use client";
 ;
 function Welcome() {
     // Hardcoded userName for demonstration
-    const userName = 'Ngesa';
+    const userName = "Ngesa";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -707,323 +707,6 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
 {
-// import Image from "next/image";
-// export default function Home() {
-//   return (
-//     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-//       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-//         <Image
-//           className="dark:invert"
-//           src="/next.svg"
-//           alt="Next.js logo"
-//           width={180}
-//           height={38}
-//           priority
-//         />
-//         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-//           <li className="mb-2">
-//             Get started by editing{" "}
-//             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-//               app/page.tsx
-//             </code>
-//             .
-//           </li>
-//           <li>Save and see your changes instantly.</li>
-//         </ol>
-//         <div className="flex gap-4 items-center flex-col sm:flex-row">
-//           <a
-//             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-//             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             <Image
-//               className="dark:invert"
-//               src="/vercel.svg"
-//               alt="Vercel logomark"
-//               width={20}
-//               height={20}
-//             />
-//             Deploy now
-//           </a>
-//           <a
-//             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-//             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Read our docs
-//           </a>
-//         </div>
-//       </main>
-//       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-//         <a
-//           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-//           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           <Image
-//             aria-hidden
-//             src="/file.svg"
-//             alt="File icon"
-//             width={16}
-//             height={16}
-//           />
-//           Learn
-//         </a>
-//         <a
-//           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-//           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           <Image
-//             aria-hidden
-//             src="/window.svg"
-//             alt="Window icon"
-//             width={16}
-//             height={16}
-//           />
-//           Examples
-//         </a>
-//         <a
-//           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-//           href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           <Image
-//             aria-hidden
-//             src="/globe.svg"
-//             alt="Globe icon"
-//             width={16}
-//             height={16}
-//           />
-//           Go to nextjs.org →
-//         </a>
-//       </footer>
-//     </div>
-//   );
-// }
-// 'use client';
-// import { useState } from 'react';
-// import { Menu, Send, Settings, Clock, Heart, HelpCircle } from 'lucide-react';
-// export default function Home() {
-//   const [message, setMessage] = useState('');
-//   const [userName, setUserName] = useState('Ngesa');
-//   return (
-//     <div className="grid min-h-screen grid-rows-[1fr] font-[family-name:var(--font-geist-sans)]">
-//       <div className="flex h-screen bg-gray-900 text-white">
-//         {/* Sidebar */}
-//         <div className="w-16 bg-gray-800 flex flex-col items-center py-4 border-r border-gray-700">
-//           <button className="p-2 hover:bg-gray-700 rounded-lg mb-8">
-//             <Menu className="w-6 h-6" />
-//           </button>
-//           <button className="p-2 hover:bg-gray-700 rounded-lg mb-4">
-//             <span className="text-2xl">+</span>
-//           </button>
-//           <div className="mt-auto flex flex-col gap-4">
-//             <button className="p-2 hover:bg-gray-700 rounded-lg">
-//               <Heart className="w-6 h-6" />
-//             </button>
-//             <button className="p-2 hover:bg-gray-700 rounded-lg">
-//               <HelpCircle className="w-6 h-6" />
-//             </button>
-//             <button className="p-2 hover:bg-gray-700 rounded-lg">
-//               <Clock className="w-6 h-6" />
-//             </button>
-//             <button className="p-2 hover:bg-gray-700 rounded-lg">
-//               <Settings className="w-6 h-6" />
-//             </button>
-//           </div>
-//         </div>
-//         {/* Main Content */}
-//         <div className="flex-1 flex flex-col">
-//           {/* Header */}
-//           <header className="flex items-center justify-between p-4 border-b border-gray-700">
-//             <div className="flex items-center space-x-2">
-//               <h1 className="text-xl font-semibold">model</h1>
-//               <span className="text-sm text-gray-400">techx 1.0</span>
-//             </div>
-//             <div className="flex items-center space-x-4">
-//               <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
-//             </div>
-//           </header>
-//           {/* Chat Area */}
-//           <div className="flex-1 overflow-y-auto p-4">
-//             <div className="flex flex-col items-center justify-center h-full">
-//               <h2 className="text-4xl mb-4">
-//                 <span className="text-blue-400">Hello</span>
-//                 <span className="text-pink-400">, {userName}</span>
-//               </h2>
-//             </div>
-//           </div>
-//           {/* Input Area */}
-//           <div className="p-4">
-//             <div className="relative">
-//               <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
-//                 <input
-//                   type="text"
-//                   value={message}
-//                   onChange={(e) => setMessage(e.target.value)}
-//                   placeholder="Ask Medial Supplies..."
-//                   className="flex-1 bg-transparent focus:outline-none"
-//                 />
-//                 <button className="ml-2">
-//                   <Send className="w-5 h-5 text-gray-400" />
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// 'use client';
-// import { useState } from 'react';
-// import { Menu, Send, Settings, Clock, Heart, HelpCircle } from 'lucide-react';
-// export default function Home() {
-//   const [message, setMessage] = useState('');
-//   // Remove setUserName since it's not being used
-//   const userName = 'Ngesa';
-//   return (
-//     <div className="grid min-h-screen grid-rows-[1fr] font-[family-name:var(--font-geist-sans)]">
-//       <div className="flex h-screen bg-gray-900 text-white">
-//         {/* Sidebar */}
-//         <div className="w-16 bg-gray-800 flex flex-col items-center py-4 border-r border-gray-700">
-//           <button 
-//             className="p-2 hover:bg-gray-700 rounded-lg mb-8"
-//             aria-label="Menu"
-//           >
-//             <Menu className="w-6 h-6" />
-//           </button>
-//           <button 
-//             className="p-2 hover:bg-gray-700 rounded-lg mb-4"
-//             aria-label="New chat"
-//           >
-//             <span className="text-2xl">+</span>
-//           </button>
-//           <div className="mt-auto flex flex-col gap-4">
-//             <button 
-//               className="p-2 hover:bg-gray-700 rounded-lg"
-//               aria-label="Favorites"
-//             >
-//               <Heart className="w-6 h-6" />
-//             </button>
-//             <button 
-//               className="p-2 hover:bg-gray-700 rounded-lg"
-//               aria-label="Help"
-//             >
-//               <HelpCircle className="w-6 h-6" />
-//             </button>
-//             <button 
-//               className="p-2 hover:bg-gray-700 rounded-lg"
-//               aria-label="History"
-//             >
-//               <Clock className="w-6 h-6" />
-//             </button>
-//             <button 
-//               className="p-2 hover:bg-gray-700 rounded-lg"
-//               aria-label="Settings"
-//             >
-//               <Settings className="w-6 h-6" />
-//             </button>
-//           </div>
-//         </div>
-//         {/* Main Content */}
-//         <div className="flex-1 flex flex-col">
-//           {/* Header */}
-//           <header className="flex items-center justify-between p-4 border-b border-gray-700">
-//             <div className="flex items-center space-x-2">
-//               <h1 className="text-xl font-semibold">model</h1>
-//               <span className="text-sm text-gray-400">techx 1.0</span>
-//             </div>
-//             <div className="flex items-center space-x-4">
-//               <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
-//             </div>
-//           </header>
-//           {/* Chat Area */}
-//           <div className="flex-1 overflow-y-auto p-4">
-//             <div className="flex flex-col items-center justify-center h-full">
-//               <h2 className="text-4xl mb-4">
-//                 <span className="text-blue-400">Hello</span>
-//                 <span className="text-pink-400">, {userName}</span>
-//               </h2>
-//             </div>
-//           </div>
-//           {/* Input Area */}
-//           <div className="p-4">
-//             <div className="relative">
-//               <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
-//                 <input
-//                   type="text"
-//                   value={message}
-//                   onChange={(e) => setMessage(e.target.value)}
-//                   placeholder="Ask Medical Supplies..."
-//                   className="flex-1 bg-transparent focus:outline-none"
-//                 />
-//                 <button 
-//                   className="ml-2"
-//                   aria-label="Send message"
-//                 >
-//                   <Send className="w-5 h-5 text-gray-400" />
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// 'use client';
-// // Main page where we combine Sidebar, Welcome, and Chat components
-// import Sidebar from "../component/Sidebar";
-// import Welcome from "../component/Welcome";
-// import Chat from "../component/Chat";
-// export default function Home() {
-//   return (
-//     <div className="grid min-h-screen grid-rows-[1fr] font-[family-name:var(--font-geist-sans)]">
-//       <div className="flex h-screen bg-gray-900 text-white">
-//         {/* Sidebar Component */}
-//         <Sidebar />
-//         {/* Main content area */}
-//         <div className="flex-1 flex flex-col">
-//           {/* Welcome Component */}
-//           <Welcome />
-//           {/* Chat Component */}
-//           <Chat />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// // File: app/page.tsx
-// 'use client';
-// // Main page where we combine Sidebar, Welcome, and Chat components
-// import Sidebar from "../component/Sidebar";
-// import Welcome from "../component/Welcome";
-// import Chat from "../component/Chat";
-// export default function Home() {
-//   return (
-//     <div className="grid min-h-screen grid-rows-[1fr] font-[family-name:var(--font-geist-sans)]">
-//       <div className="flex h-screen bg-gray-900 text-white">
-//         {/* Sidebar Component */}
-//         <Sidebar />
-//         {/* Main content area */}
-//         <div className="flex-1 flex flex-col">
-//           {/* Welcome Component */}
-//           <Welcome />
-//           {/* Chat Component */}
-//           <Chat />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// File: /workspaces/medical_supplies/app/page.tsx
 __turbopack_esm__({
     "default": (()=>Home)
 });
@@ -1031,7 +714,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Sidebar.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Welcome$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Welcome.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Chat/Chat.tsx [app-client] (ecmascript)");
-'use client';
+"use client";
 ;
 ;
 ;
@@ -1051,7 +734,7 @@ function Home() {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 373,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1059,31 +742,31 @@ function Home() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Welcome$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 378,
+                            lineNumber: 26,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             onFileUpload: handleFileUpload
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 381,
+                            lineNumber: 29,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 376,
+                    lineNumber: 24,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 370,
+            lineNumber: 19,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 369,
+        lineNumber: 18,
         columnNumber: 5
     }, this);
 }
