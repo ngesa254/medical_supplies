@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Medical Supplies Assistant",
-  description: "Your AI assistant for medical supplies",
+  description: "Your Gen AI assistant for medical supplies",
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {

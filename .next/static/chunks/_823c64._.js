@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_31f774._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_823c64._.js", {
 
 "[project]/component/Sidebar.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -462,13 +462,312 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 //     </div>
 //   );
 // }
+// // File: /workspaces/medical_supplies/component/Chat_2.tsx
+// 'use client';
+// import React, { useState, useRef } from 'react';
+// import { Send, Upload, Camera } from 'lucide-react';
+// interface ChatMessage {
+//   role: 'user' | 'assistant';
+//   text: string;
+// }
+// interface Chat2Props {
+//   onFileUpload?: (files: FileList) => void;
+// }
+// export default function Chat_2({ onFileUpload }: Chat2Props) {
+//   const [message, setMessage] = useState('');
+//   const [messages, setMessages] = useState<ChatMessage[]>([]); // Store conversation history
+//   const [isUploadOpen, setIsUploadOpen] = useState(false);
+//   const fileInputRef = useRef<HTMLInputElement>(null);
+//   // Send the user message and generate a simulated AI response
+//   const handleSend = () => {
+//     const trimmed = message.trim();
+//     if (!trimmed) return;
+//     // Add user message to the conversation
+//     setMessages((prev) => [...prev, { role: 'user', text: trimmed }]);
+//     setMessage('');
+//     // Simulate a brief delay before the AI responds
+//     setTimeout(() => {
+//       setMessages((prev) => [
+//         ...prev,
+//         {
+//           role: 'assistant',
+//           text: generateAIResponse(trimmed),
+//         },
+//       ]);
+//     }, 600); // adjust delay as desired
+//   };
+//   // Very simple local function to generate a placeholder response
+//   // You can replace this with real logic (like a fetch to your backend).
+//   const generateAIResponse = (userText: string) => {
+//     // You can tailor the logic based on userText
+//     if (userText.toLowerCase() === 'hi') {
+//       return `Hello! How can I help you today?`;
+//     }
+//     // Otherwise, a generic echo
+//     return `Simulated AI says: I heard you say "${userText}".`;
+//   };
+//   // Handle file selection
+//   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     if (e.target.files && e.target.files.length > 0) {
+//       onFileUpload?.(e.target.files);
+//     }
+//     setIsUploadOpen(false);
+//   };
+//   return (
+//     <div className="p-4 border-t border-gray-700 h-full flex flex-col">
+//       {/* Conversation Display */}
+//       <div className="flex-1 overflow-y-auto mb-4 pr-1">
+//         {messages.map((msg, idx) => (
+//           <div key={idx} className="mb-2">
+//             {msg.role === 'user' ? (
+//               <div className="text-white">
+//                 <strong>You:</strong> {msg.text}
+//               </div>
+//             ) : (
+//               <div className="text-blue-400">
+//                 <strong>AI:</strong> {msg.text}
+//               </div>
+//             )}
+//           </div>
+//         ))}
+//       </div>
+//       {/* Input Row */}
+//       <div className="relative">
+//         <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
+//           {/* Text Input on the left */}
+//           <input
+//             type="text"
+//             value={message}
+//             onChange={(e) => setMessage(e.target.value)}
+//             placeholder="Ask Medical Supplies..."
+//             className="flex-1 bg-transparent focus:outline-none placeholder-gray-400"
+//           />
+//           {/* Upload Button near Send Button */}
+//           <div className="relative ml-2">
+//             <button
+//               type="button"
+//               onClick={() => setIsUploadOpen(!isUploadOpen)}
+//               className="p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg"
+//             >
+//               <Upload className="w-5 h-5" />
+//             </button>
+//             {isUploadOpen && (
+//               <div className="absolute bottom-full right-0 mb-2 w-40 bg-gray-800 rounded-lg shadow-lg border border-gray-700">
+//                 <div className="p-2 space-y-2">
+//                   <input
+//                     ref={fileInputRef}
+//                     type="file"
+//                     onChange={handleFileChange}
+//                     className="hidden"
+//                     multiple
+//                     accept="image/*,.pdf,.doc,.docx,.txt"
+//                   />
+//                   <button
+//                     type="button"
+//                     onClick={() => fileInputRef.current?.click()}
+//                     className="flex items-center w-full p-2 text-left text-sm text-gray-300 hover:bg-gray-700 rounded"
+//                   >
+//                     <Camera className="w-4 h-4 mr-2" />
+//                   </button>
+//                 </div>
+//               </div>
+//             )}
+//           </div>
+//           {/* Send Button on the far right */}
+//           <button
+//             className="ml-2"
+//             aria-label="Send message"
+//             onClick={handleSend}
+//           >
+//             <Send className="w-5 h-5 text-gray-400" />
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+// // File: /workspaces/medical_supplies/component/Chat_2.tsx
+// 'use client';
+// import React, { useState, useRef } from 'react';
+// import { Send, Paperclip, Camera } from 'lucide-react';
+// interface ChatMessage {
+//   role: 'user' | 'assistant';
+//   text: string;
+// }
+// interface Chat2Props {
+//   onFileUpload?: (files: FileList) => void;
+// }
+// export default function Chat_2({ onFileUpload }: Chat2Props) {
+//   // Conversation messages
+//   const [messages, setMessages] = useState<ChatMessage[]>([]);
+//   // Current text input
+//   const [message, setMessage] = useState('');
+//   // Uploaded files
+//   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+//   // Refs for two hidden inputs (pin vs camera)
+//   const pinInputRef = useRef<HTMLInputElement>(null);
+//   const cameraInputRef = useRef<HTMLInputElement>(null);
+//   // Sends the user's message and simulates an AI response
+//   const handleSend = () => {
+//     const trimmed = message.trim();
+//     if (!trimmed) return;
+//     // Add user's message
+//     setMessages((prev) => [...prev, { role: 'user', text: trimmed }]);
+//     setMessage('');
+//     // Simulate AI response after a short delay
+//     setTimeout(() => {
+//       setMessages((prev) => [
+//         ...prev,
+//         {
+//           role: 'assistant',
+//           text: generateAIResponse(trimmed),
+//         },
+//       ]);
+//     }, 600);
+//   };
+//   // Very simple placeholder logic for AI response
+//   const generateAIResponse = (userText: string) => {
+//     if (userText.toLowerCase() === 'hi') {
+//       return 'Hello! How can I help you today?';
+//     }
+//     return `Simulated AI says: I heard you say "${userText}".`;
+//   };
+//   // Handle file selection from pin or camera
+//   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     if (e.target.files && e.target.files.length > 0) {
+//       const filesArray = Array.from(e.target.files);
+//       setUploadedFiles((prev) => [...prev, ...filesArray]);
+//       // If you want to inform a parent component:
+//       onFileUpload?.(e.target.files);
+//     }
+//   };
+//   // Trigger hidden file input for "Pin"
+//   const handlePinClick = () => {
+//     pinInputRef.current?.click();
+//   };
+//   // Trigger hidden file input for "Camera"
+//   const handleCameraClick = () => {
+//     cameraInputRef.current?.click();
+//   };
+//   return (
+//     <div className="p-4 border-t border-gray-700 h-full flex flex-col">
+//       {/* Conversation Display */}
+//       <div className="flex-1 overflow-y-auto mb-4 pr-1">
+//         {messages.map((msg, idx) => (
+//           <div key={idx} className="mb-2">
+//             {msg.role === 'user' ? (
+//               <div className="text-white">
+//                 <strong>You:</strong> {msg.text}
+//               </div>
+//             ) : (
+//               <div className="text-blue-400">
+//                 <strong>AI:</strong> {msg.text}
+//               </div>
+//             )}
+//           </div>
+//         ))}
+//       </div>
+//       {/* Display Uploaded Files */}
+//       {uploadedFiles.length > 0 && (
+//         <div className="mb-4">
+//           <h4 className="text-sm text-gray-300 mb-1">Uploaded Files:</h4>
+//           <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+//             {uploadedFiles.map((file, index) => {
+//               // For images, show a preview; otherwise just show name
+//               const isImage = file.type.startsWith('image/');
+//               const fileURL = URL.createObjectURL(file);
+//               return (
+//                 <div
+//                   key={index}
+//                   className="border border-gray-700 p-2 rounded-lg flex flex-col items-center"
+//                 >
+//                   {isImage ? (
+//                     <img
+//                       src={fileURL}
+//                       alt={file.name}
+//                       className="max-h-32 object-cover mb-1 rounded"
+//                     />
+//                   ) : (
+//                     <div className="text-xs text-gray-300 break-all">
+//                       {file.name}
+//                     </div>
+//                   )}
+//                   <div className="text-xs text-gray-500">
+//                     {(file.size / 1024).toFixed(1)} KB
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       )}
+//       {/* Input Row */}
+//       <div className="relative">
+//         <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
+//           {/* Text Input */}
+//           <input
+//             type="text"
+//             value={message}
+//             onChange={(e) => setMessage(e.target.value)}
+//             placeholder="Ask Medical Supplies..."
+//             className="flex-1 bg-transparent focus:outline-none placeholder-gray-400"
+//           />
+//           {/* Pin (Paperclip) for file upload */}
+//           <button
+//             type="button"
+//             onClick={handlePinClick}
+//             className="p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg ml-2"
+//             aria-label="Pin files"
+//           >
+//             <Paperclip className="w-5 h-5" />
+//           </button>
+//           {/* Hidden input for pin files */}
+//           <input
+//             ref={pinInputRef}
+//             type="file"
+//             multiple
+//             accept="*/*"
+//             className="hidden"
+//             onChange={handleFileChange}
+//           />
+//           {/* Camera */}
+//           <button
+//             type="button"
+//             onClick={handleCameraClick}
+//             className="p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg ml-2"
+//             aria-label="Camera"
+//           >
+//             <Camera className="w-5 h-5" />
+//           </button>
+//           {/* Hidden input for camera captures (only images if desired) */}
+//           <input
+//             ref={cameraInputRef}
+//             type="file"
+//             accept="image/*"
+//             capture="user"
+//             className="hidden"
+//             onChange={handleFileChange}
+//           />
+//           {/* Send Button */}
+//           <button
+//             className="ml-2 p-2 text-gray-400 hover:text-white focus:outline-none"
+//             aria-label="Send message"
+//             onClick={handleSend}
+//           >
+//             <Send className="w-5 h-5" />
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 // File: /workspaces/medical_supplies/component/Chat_2.tsx
 __turbopack_esm__({
     "default": (()=>Chat_2)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript) <export default as Upload>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Paperclip$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/paperclip.js [app-client] (ecmascript) <export default as Paperclip>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Camera$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/camera.js [app-client] (ecmascript) <export default as Camera>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-client] (ecmascript) <export default as Send>");
 ;
@@ -478,15 +777,20 @@ var _s = __turbopack_refresh__.signature();
 ;
 function Chat_2({ onFileUpload }) {
     _s();
+    // Chat conversation
+    const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    // Current input value
     const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]); // Store conversation history
-    const [isUploadOpen, setIsUploadOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const fileInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    // Send the user message and generate a simulated AI response
+    // All uploaded files
+    const [uploadedFiles, setUploadedFiles] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    // Hidden file inputs
+    const pinInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const cameraInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    // Sends the user's message and simulates an AI response
     const handleSend = ()=>{
         const trimmed = message.trim();
         if (!trimmed) return;
-        // Add user message to the conversation
+        // Add user's message
         setMessages((prev)=>[
                 ...prev,
                 {
@@ -495,7 +799,7 @@ function Chat_2({ onFileUpload }) {
                 }
             ]);
         setMessage('');
-        // Simulate a brief delay before the AI responds
+        // Simulate AI response after short delay
         setTimeout(()=>{
             setMessages((prev)=>[
                     ...prev,
@@ -504,24 +808,32 @@ function Chat_2({ onFileUpload }) {
                         text: generateAIResponse(trimmed)
                     }
                 ]);
-        }, 600); // adjust delay as desired
+        }, 600);
     };
-    // Very simple local function to generate a placeholder response
-    // You can replace this with real logic (like a fetch to your backend).
+    // Simple local AI logic
     const generateAIResponse = (userText)=>{
-        // You can tailor the logic based on userText
         if (userText.toLowerCase() === 'hi') {
-            return `Hello! How can I help you today?`;
+            return 'Hello! How can I help you today?';
         }
-        // Otherwise, a generic echo
         return `Simulated AI says: I heard you say "${userText}".`;
     };
-    // Handle file selection
+    // Handle files from either pin or camera
     const handleFileChange = (e)=>{
         if (e.target.files && e.target.files.length > 0) {
-            onFileUpload?.(e.target.files);
+            const filesArray = Array.from(e.target.files);
+            setUploadedFiles((prev)=>[
+                    ...prev,
+                    ...filesArray
+                ]);
+            onFileUpload?.(e.target.files); // Optional callback to parent
         }
-        setIsUploadOpen(false);
+    };
+    // Trigger hidden file inputs
+    const handlePinClick = ()=>{
+        pinInputRef.current?.click();
+    };
+    const handleCameraClick = ()=>{
+        cameraInputRef.current?.click();
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-4 border-t border-gray-700 h-full flex flex-col",
@@ -537,7 +849,7 @@ function Chat_2({ onFileUpload }) {
                                     children: "You:"
                                 }, void 0, false, {
                                     fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 289,
+                                    lineNumber: 643,
                                     columnNumber: 17
                                 }, this),
                                 " ",
@@ -545,16 +857,16 @@ function Chat_2({ onFileUpload }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 288,
+                            lineNumber: 642,
                             columnNumber: 15
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-blue-400",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                    children: "AI:"
+                                    children: "Bot:"
                                 }, void 0, false, {
                                     fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 293,
+                                    lineNumber: 647,
                                     columnNumber: 17
                                 }, this),
                                 " ",
@@ -562,18 +874,82 @@ function Chat_2({ onFileUpload }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 292,
+                            lineNumber: 646,
                             columnNumber: 15
                         }, this)
                     }, idx, false, {
                         fileName: "[project]/component/Chat/Chat.tsx",
-                        lineNumber: 286,
+                        lineNumber: 640,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/component/Chat/Chat.tsx",
-                lineNumber: 284,
+                lineNumber: 638,
                 columnNumber: 7
+            }, this),
+            uploadedFiles.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mb-4",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                        className: "text-sm text-gray-300 mb-1",
+                        children: "Uploaded Files:"
+                    }, void 0, false, {
+                        fileName: "[project]/component/Chat/Chat.tsx",
+                        lineNumber: 657,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
+                        children: uploadedFiles.map((file, index)=>{
+                            const isImage = file.type.startsWith('image/');
+                            const fileURL = URL.createObjectURL(file);
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "border border-gray-700 p-2 rounded-lg flex flex-col items-center",
+                                children: [
+                                    isImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: fileURL,
+                                        alt: file.name,
+                                        className: "max-h-32 object-cover mb-1 rounded"
+                                    }, void 0, false, {
+                                        fileName: "[project]/component/Chat/Chat.tsx",
+                                        lineNumber: 669,
+                                        columnNumber: 21
+                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xs text-gray-300 break-all",
+                                        children: file.name
+                                    }, void 0, false, {
+                                        fileName: "[project]/component/Chat/Chat.tsx",
+                                        lineNumber: 675,
+                                        columnNumber: 21
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xs text-gray-500",
+                                        children: [
+                                            (file.size / 1024).toFixed(1),
+                                            " KB"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/component/Chat/Chat.tsx",
+                                        lineNumber: 679,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, index, true, {
+                                fileName: "[project]/component/Chat/Chat.tsx",
+                                lineNumber: 664,
+                                columnNumber: 17
+                            }, this);
+                        })
+                    }, void 0, false, {
+                        fileName: "[project]/component/Chat/Chat.tsx",
+                        lineNumber: 658,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/component/Chat/Chat.tsx",
+                lineNumber: 656,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative",
@@ -584,117 +960,144 @@ function Chat_2({ onFileUpload }) {
                             type: "text",
                             value: message,
                             onChange: (e)=>setMessage(e.target.value),
+                            onKeyDown: (e)=>{
+                                if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    handleSend();
+                                }
+                            },
                             placeholder: "Ask Medical Supplies...",
                             className: "flex-1 bg-transparent focus:outline-none placeholder-gray-400"
                         }, void 0, false, {
                             fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 304,
+                            lineNumber: 693,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative ml-2",
+                            className: "relative ml-2 group",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     type: "button",
-                                    onClick: ()=>setIsUploadOpen(!isUploadOpen),
                                     className: "p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
+                                    "aria-label": "Upload Menu",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Paperclip$3e$__["Paperclip"], {
                                         className: "w-5 h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/component/Chat/Chat.tsx",
-                                        lineNumber: 319,
+                                        lineNumber: 714,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 709,
                                     columnNumber: 13
                                 }, this),
-                                isUploadOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute bottom-full right-0 mb-2 w-40 bg-gray-800 rounded-lg shadow-lg border border-gray-700",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "p-2 space-y-2",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                ref: fileInputRef,
-                                                type: "file",
-                                                onChange: handleFileChange,
-                                                className: "hidden",
-                                                multiple: true,
-                                                accept: "image/*,.pdf,.doc,.docx,.txt"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: " absolute bottom-full right-0 mb-2 flex flex-col items-center px-3 py-2 space-y-2 bg-gray-800 rounded-lg shadow-lg border border-gray-700 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity ",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: handlePinClick,
+                                            className: "text-gray-300 hover:text-white",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Paperclip$3e$__["Paperclip"], {
+                                                className: "w-5 h-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/component/Chat/Chat.tsx",
-                                                lineNumber: 325,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                type: "button",
-                                                onClick: ()=>fileInputRef.current?.click(),
-                                                className: "flex items-center w-full p-2 text-left text-sm text-gray-300 hover:bg-gray-700 rounded",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Camera$3e$__["Camera"], {
-                                                    className: "w-4 h-4 mr-2"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/component/Chat/Chat.tsx",
-                                                    lineNumber: 338,
-                                                    columnNumber: 21
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/component/Chat/Chat.tsx",
-                                                lineNumber: 333,
-                                                columnNumber: 19
+                                                lineNumber: 732,
+                                                columnNumber: 17
                                             }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/component/Chat/Chat.tsx",
-                                        lineNumber: 324,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
+                                        }, void 0, false, {
+                                            fileName: "[project]/component/Chat/Chat.tsx",
+                                            lineNumber: 727,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            ref: pinInputRef,
+                                            type: "file",
+                                            multiple: true,
+                                            accept: "*/*",
+                                            className: "hidden",
+                                            onChange: handleFileChange
+                                        }, void 0, false, {
+                                            fileName: "[project]/component/Chat/Chat.tsx",
+                                            lineNumber: 734,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: handleCameraClick,
+                                            className: "text-gray-300 hover:text-white",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Camera$3e$__["Camera"], {
+                                                className: "w-5 h-5"
+                                            }, void 0, false, {
+                                                fileName: "[project]/component/Chat/Chat.tsx",
+                                                lineNumber: 749,
+                                                columnNumber: 17
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/component/Chat/Chat.tsx",
+                                            lineNumber: 744,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            ref: cameraInputRef,
+                                            type: "file",
+                                            accept: "image/*",
+                                            capture: "user",
+                                            className: "hidden",
+                                            onChange: handleFileChange
+                                        }, void 0, false, {
+                                            fileName: "[project]/component/Chat/Chat.tsx",
+                                            lineNumber: 751,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 323,
-                                    columnNumber: 15
+                                    lineNumber: 718,
+                                    columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 313,
+                            lineNumber: 708,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            className: "ml-2",
+                            className: "ml-2 p-2 text-gray-400 hover:text-white focus:outline-none",
                             "aria-label": "Send message",
                             onClick: handleSend,
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__["Send"], {
-                                className: "w-5 h-5 text-gray-400"
+                                className: "w-5 h-5"
                             }, void 0, false, {
                                 fileName: "[project]/component/Chat/Chat.tsx",
-                                lineNumber: 351,
+                                lineNumber: 768,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 346,
+                            lineNumber: 763,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/component/Chat/Chat.tsx",
-                    lineNumber: 302,
+                    lineNumber: 691,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/component/Chat/Chat.tsx",
-                lineNumber: 301,
+                lineNumber: 690,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/component/Chat/Chat.tsx",
-        lineNumber: 282,
+        lineNumber: 636,
         columnNumber: 5
     }, this);
 }
-_s(Chat_2, "ZUXqXwCZTPoIeufCeGpdCK0DTHs=");
+_s(Chat_2, "VfR+ma68sV3HFvgWGtJ9nO5QC80=");
 _c = Chat_2;
 var _c;
 __turbopack_refresh__.register(_c, "Chat_2");
@@ -1883,7 +2286,7 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/settings.js [app-client] (ecmascript)");
 }}),
-"[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/node_modules/lucide-react/dist/esm/icons/paperclip.js [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, z: __turbopack_require_stub__ } = __turbopack_context__;
@@ -1895,7 +2298,7 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
  * See the LICENSE file in the root directory of this source tree.
  */ __turbopack_esm__({
     "__iconNode": (()=>__iconNode),
-    "default": (()=>Upload)
+    "default": (()=>Paperclip)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-client] (ecmascript)");
 ;
@@ -1903,41 +2306,31 @@ const __iconNode = [
     [
         "path",
         {
-            d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
-            key: "ih7n3h"
+            d: "M13.234 20.252 21 12.3",
+            key: "1cbrk9"
         }
     ],
     [
-        "polyline",
+        "path",
         {
-            points: "17 8 12 3 7 8",
-            key: "t8dd8p"
-        }
-    ],
-    [
-        "line",
-        {
-            x1: "12",
-            x2: "12",
-            y1: "3",
-            y2: "15",
-            key: "widbto"
+            d: "m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486",
+            key: "1pkts6"
         }
     ]
 ];
-const Upload = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Upload", __iconNode);
+const Paperclip = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Paperclip", __iconNode);
 ;
- //# sourceMappingURL=upload.js.map
+ //# sourceMappingURL=paperclip.js.map
 }}),
-"[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript) <export default as Upload>": ((__turbopack_context__) => {
+"[project]/node_modules/lucide-react/dist/esm/icons/paperclip.js [app-client] (ecmascript) <export default as Paperclip>": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, t: __turbopack_require_real__ } = __turbopack_context__;
 {
 __turbopack_esm__({
-    "Upload": (()=>__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])
+    "Paperclip": (()=>__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])
 });
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/paperclip.js [app-client] (ecmascript)");
 }}),
 "[project]/node_modules/lucide-react/dist/esm/icons/camera.js [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -2035,4 +2428,4 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 }}),
 }]);
 
-//# sourceMappingURL=_31f774._.js.map
+//# sourceMappingURL=_823c64._.js.map

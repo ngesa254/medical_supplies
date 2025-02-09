@@ -8,9 +8,14 @@
       "static/chunks/app_layout_tsx_83fc40._.js",
       "static/chunks/node_modules_@clerk_nextjs_dist_esm_app-router_a45e37._.js",
       "static/chunks/app_layout_tsx_61af54._.js",
+<<<<<<< HEAD
       "static/chunks/node_modules_0f313f._.js",
       "static/chunks/_80006b._.js",
       "static/chunks/app_page_tsx_884df2._.js",
+=======
+      "static/chunks/_3db7d5._.js",
+      "static/chunks/app_page_tsx_04199f._.js",
+>>>>>>> a60705417d3df0eb2c1325cfd60bcd24a27999e8
       "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
       "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
       "static/chunks/node_modules_next_dist_client_523921._.js",
