@@ -260,431 +260,303 @@ function Welcome() {
     }, void 0, true);
 }
 }}),
-"[project]/component/Chat/Chat.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
+"[project]/component/Chat/Chat.tsx [app-ssr] (ecmascript)": (function(__turbopack_context__) {
 
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, m: module, e: exports, t: __turbopack_require_real__ } = __turbopack_context__;
 {
-// // File: /workspaces/medical_supplies/component/Chat_2.tsx
+// // 'use client';
+// // // File: /workspaces/medical_supplies/component/Chat/Chat.tsx
+// // import React, { useState, useRef } from 'react';
+// // import {
+// //   Send,
+// //   Upload,
+// //   Paperclip,
+// //   Camera,
+// // } from 'lucide-react';
+// // interface ChatMessage {
+// //   role: 'user' | 'assistant';
+// //   text: string;
+// // }
+// // interface ChatProps {
+// //   onFileUpload?: (files: FileList) => void;
+// // }
+// // export default function Chat({ onFileUpload }: ChatProps) {
+// //   const [messages, setMessages] = useState<ChatMessage[]>([]);
+// //   const [message, setMessage] = useState('');
+// //   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+// //   const fileInputRef = useRef<HTMLInputElement>(null);
+// //   const photoInputRef = useRef<HTMLInputElement>(null);
+// //   const handleSend = () => {
+// //     const trimmed = message.trim();
+// //     if (!trimmed) return;
+// //     setMessages((prev) => [...prev, { role: 'user', text: trimmed }]);
+// //     setMessage('');
+// //     setTimeout(() => {
+// //       setMessages((prev) => [...prev, {
+// //         role: 'assistant',
+// //         text: generateAIResponse(trimmed),
+// //       }]);
+// //     }, 600);
+// //   };
+// //   const generateAIResponse = (userText: string) => {
+// //     if (userText.toLowerCase() === 'hi') {
+// //       return 'Hello! How can I help you today?';
+// //     }
+// //     return `Simulated AI says: I heard you say "${userText}".`;
+// //   };
+// //   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+// //     if (e.target.files && e.target.files.length > 0) {
+// //       const filesArray = Array.from(e.target.files);
+// //       setUploadedFiles(prev => [...prev, ...filesArray]);
+// //       onFileUpload?.(e.target.files);
+// //       // Reset the input value to allow selecting the same file again
+// //       e.target.value = '';
+// //     }
+// //   };
+// //   return (
+// //     <div className="flex-1 flex flex-col">
+// //       {/* Messages Display */}
+// //       <div className="flex-1 overflow-y-auto p-4">
+// //         {messages.map((msg, idx) => (
+// //           <div key={idx} className="mb-4">
+// //             <div className={msg.role === 'user' ? "text-white" : "text-blue-400"}>
+// //               <strong>{msg.role === 'user' ? 'You:' : 'Assistant:'}</strong> {msg.text}
+// //             </div>
+// //           </div>
+// //         ))}
+// //       </div>
+// //       {/* File Preview */}
+// //       {uploadedFiles.length > 0 && (
+// //         <div className="p-4 border-t border-gray-700">
+// //           <h4 className="text-sm text-gray-300 mb-2">Uploaded Files:</h4>
+// //           <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+// //             {uploadedFiles.map((file, index) => {
+// //               const isImage = file.type.startsWith('image/');
+// //               const fileURL = URL.createObjectURL(file);
+// //               return (
+// //                 <div key={index} className="border border-gray-700 p-2 rounded-lg flex flex-col items-center">
+// //                   {isImage ? (
+// //                     <img src={fileURL} alt={file.name} className="max-h-32 object-cover mb-1 rounded" />
+// //                   ) : (
+// //                     <div className="text-xs text-gray-300 break-all">{file.name}</div>
+// //                   )}
+// //                   <div className="text-xs text-gray-500">{(file.size / 1024).toFixed(1)} KB</div>
+// //                 </div>
+// //               );
+// //             })}
+// //           </div>
+// //         </div>
+// //       )}
+// //       {/* Input Area */}
+// //       <div className="p-4 border-t border-gray-700">
+// //         <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
+// //           <input
+// //             type="text"
+// //             value={message}
+// //             onChange={(e) => setMessage(e.target.value)}
+// //             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
+// //             placeholder="Ask Medical Supplies..."
+// //             className="flex-1 bg-transparent focus:outline-none placeholder-gray-400"
+// //           />
+// //           {/* Hidden File Inputs */}
+// //           <input
+// //             ref={fileInputRef}
+// //             type="file"
+// //             onChange={handleFileChange}
+// //             className="hidden"
+// //             multiple
+// //             accept="*/*"
+// //           />
+// //           <input
+// //             ref={photoInputRef}
+// //             type="file"
+// //             onChange={handleFileChange}
+// //             className="hidden"
+// //             accept="image/*"
+// //             capture="user"
+// //           />
+// //           {/* Upload Button with Dropdown */}
+// //           <div className="relative group">
+// //             <button
+// //               type="button"
+// //               className="p-2 text-gray-300 hover:text-white focus:outline-none rounded-lg"
+// //               aria-label="Upload files"
+// //             >
+// //               <Upload className="w-5 h-5" />
+// //             </button>
+// //             {/* Dropdown Menu */}
+// //             <div 
+// //               className="absolute right-0 bottom-full mb-2 translate-y-2 opacity-0 invisible 
+// //                          group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible 
+// //                          transition-all duration-200 ease-out z-50"
+// //             >
+// //               <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700">
+// //                 <button
+// //                   onClick={() => fileInputRef.current?.click()}
+// //                   className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+// //                 >
+// //                   <Paperclip className="w-4 h-4" />
+// //                   Choose Files
+// //                 </button>
+// //                 <button
+// //                   onClick={() => photoInputRef.current?.click()}
+// //                   className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+// //                 >
+// //                   <Camera className="w-4 h-4" />
+// //                   Take Photo
+// //                 </button>
+// //               </div>
+// //             </div>
+// //           </div>
+// //           {/* Send Button */}
+// //           <button
+// //             onClick={handleSend}
+// //             className="p-2 text-gray-300 hover:text-white focus:outline-none ml-1"
+// //             aria-label="Send message"
+// //           >
+// //             <Send className="w-5 h-5" />
+// //           </button>
+// //         </div>
+// //       </div>
+// //     </div>
+// //   );
+// // }
 // 'use client';
+// // File: /workspaces/medical_supplies/component/Chat/Chat.tsx
 // import React, { useState, useRef } from 'react';
-// import { Send, Upload, Camera, Link } from 'lucide-react';
-// /**
-//  * Chat_2 component demonstrating:
-//  * 1. A text input for messages
-//  * 2. A toggle menu for file uploads / link insertion
-//  * 3. A send button icon
-//  *
-//  * Props:
-//  * - onFileUpload (optional): function to handle uploaded files
-//  *   (if omitted, uploaded files won't be processed)
-//  */
-// interface Chat2Props {
+// import {
+//   Send,
+//   Upload,
+//   Paperclip,
+//   Camera,
+// } from 'lucide-react';
+// interface ChatMessage {
+//   role: 'user' | 'assistant';
+//   text: string;
+// }
+// interface ChatProps {
 //   onFileUpload?: (files: FileList) => void;
 // }
-// export default function Chat_2({ onFileUpload }: Chat2Props) {
-//   // Local state for the message
+// export default function Chat({ onFileUpload }: ChatProps) {
+//   const [messages, setMessages] = useState<ChatMessage[]>([]);
 //   const [message, setMessage] = useState('');
-//   // For toggling the upload menu
-//   const [isUploadOpen, setIsUploadOpen] = useState(false);
-//   // Ref to the hidden file input
+//   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+//   const [hoverUpload, setHoverUpload] = useState(false);
 //   const fileInputRef = useRef<HTMLInputElement>(null);
-//   // Send message handler (placeholder for real logic)
+//   const photoInputRef = useRef<HTMLInputElement>(null);
 //   const handleSend = () => {
-//     if (!message.trim()) return;
-//     // Implement your sending logic here
-//     console.log('Sending message:', message);
+//     const trimmed = message.trim();
+//     if (!trimmed) return;
+//     setMessages((prev) => [...prev, { role: 'user', text: trimmed }]);
 //     setMessage('');
+//     setTimeout(() => {
+//       setMessages((prev) => [...prev, {
+//         role: 'assistant',
+//         text: generateAIResponse(trimmed),
+//       }]);
+//     }, 600);
 //   };
-//   // Handle file selection
+//   const generateAIResponse = (userText: string) => {
+//     if (userText.toLowerCase() === 'hi') {
+//       return 'Hello! How can I help you today?';
+//     }
+//     return `Simulated AI says: I heard you say "${userText}".`;
+//   };
 //   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 //     if (e.target.files && e.target.files.length > 0) {
-//       // If the parent component provided a callback:
+//       const filesArray = Array.from(e.target.files);
+//       setUploadedFiles(prev => [...prev, ...filesArray]);
 //       onFileUpload?.(e.target.files);
-//       // You can console.log(e.target.files) or process them here
+//       // Reset the input value to allow selecting the same file again
+//       e.target.value = '';
 //     }
-//     // Close the upload menu
-//     setIsUploadOpen(false);
 //   };
 //   return (
-//     <div className="p-4 border-t border-gray-700">
-//       <div className="relative">
-//         {/* Input Container */}
-//         <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
-//           {/* Upload Button + Hidden File Input */}
-//           <div className="relative">
-//             <button
-//               type="button"
-//               onClick={() => setIsUploadOpen(!isUploadOpen)}
-//               className="p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg"
-//             >
-//               <Upload className="w-5 h-5" />
-//             </button>
-//             {isUploadOpen && (
-//               <div className="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 rounded-lg shadow-lg border border-gray-700">
-//                 <div className="p-2 space-y-2">
-//                   {/* Hidden input to accept files */}
-//                   <input
-//                     ref={fileInputRef}
-//                     type="file"
-//                     onChange={handleFileChange}
-//                     className="hidden"
-//                     multiple
-//                     accept="image/*,.pdf,.doc,.docx,.txt"
-//                   />
-//                   {/* Upload from device */}
-//                   <button
-//                     type="button"
-//                     onClick={() => fileInputRef.current?.click()}
-//                     className="flex items-center w-full p-2 text-left text-sm text-gray-300 hover:bg-gray-700 rounded"
-//                   >
-//                     <Camera className="w-4 h-4 mr-2" />
-//                     Upload from device
-//                   </button>
-//                   {/* Insert link */}
-//                   <button
-//                     type="button"
-//                     className="flex items-center w-full p-2 text-left text-sm text-gray-300 hover:bg-gray-700 rounded"
-//                   >
-//                     <Link className="w-4 h-4 mr-2" />
-//                     Insert link
-//                   </button>
-//                 </div>
-//               </div>
-//             )}
+//     <div className="flex-1 flex flex-col">
+//       {/* Messages Display */}
+//       <div className="flex-1 overflow-y-auto p-4">
+//         {messages.map((msg, idx) => (
+//           <div key={idx} className="mb-4">
+//             <div className={msg.role === 'user' ? "text-white" : "text-blue-400"}>
+//               <strong>{msg.role === 'user' ? 'You:' : 'Assistant:'}</strong> {msg.text}
+//             </div>
 //           </div>
-//           {/* Text Input */}
-//           <input
-//             type="text"
-//             value={message}
-//             onChange={(e) => setMessage(e.target.value)}
-//             placeholder="Ask Medical Supplies..."
-//             className="flex-1 mx-2 bg-transparent focus:outline-none placeholder-gray-400"
-//           />
-//           {/* Send Button */}
-//           <button
-//             className="ml-2"
-//             aria-label="Send message"
-//             onClick={handleSend}
-//           >
-//             <Send className="w-5 h-5 text-gray-400" />
-//           </button>
-//         </div>
+//         ))}
 //       </div>
-//     </div>
-//   );
-// }
-// // File: /workspaces/medical_supplies/component/Chat_2.tsx
-// 'use client';
-// import React, { useState, useRef } from 'react';
-// import { Send, Upload, Camera } from 'lucide-react';
-// interface Chat2Props {
-//   onFileUpload?: (files: FileList) => void;
-// }
-// export default function Chat_2({ onFileUpload }: Chat2Props) {
-//   const [message, setMessage] = useState('');
-//   const [isUploadOpen, setIsUploadOpen] = useState(false);
-//   const fileInputRef = useRef<HTMLInputElement>(null);
-//   // Send the message (placeholder logic)
-//   const handleSend = () => {
-//     if (!message.trim()) return;
-//     console.log('Sending message:', message);
-//     setMessage('');
-//   };
-//   // Handle file selection
-//   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     if (e.target.files && e.target.files.length > 0) {
-//       onFileUpload?.(e.target.files);
-//     }
-//     setIsUploadOpen(false);
-//   };
-//   return (
-//     <div className="p-4 border-t border-gray-700">
-//       <div className="relative">
+//       {/* Input Area */}
+//       <div className="p-4 border-t border-gray-700">
 //         <div className="flex items-center bg-gray-800 rounded-xl px-4 py-3">
-//           {/* Text Input on the left */}
 //           <input
 //             type="text"
 //             value={message}
 //             onChange={(e) => setMessage(e.target.value)}
+//             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
 //             placeholder="Ask Medical Supplies..."
 //             className="flex-1 bg-transparent focus:outline-none placeholder-gray-400"
 //           />
-//           {/* Upload Button near Send Button */}
-//           <div className="relative ml-2">
+//           {/* Upload Button with Dropdown */}
+//           <div className="relative group">
 //             <button
 //               type="button"
-//               onClick={() => setIsUploadOpen(!isUploadOpen)}
-//               className="p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg"
+//               className="p-2 text-gray-300 hover:text-white focus:outline-none rounded-lg"
+//               aria-label="Upload files"
+//               onMouseEnter={() => setHoverUpload(true)}
+//               onMouseLeave={() => setHoverUpload(false)}
 //             >
 //               <Upload className="w-5 h-5" />
 //             </button>
-//             {isUploadOpen && (
-//               <div className="absolute bottom-full right-0 mb-2 w-40 bg-gray-800 rounded-lg shadow-lg border border-gray-700">
-//                 <div className="p-2 space-y-2">
-//                   <input
-//                     ref={fileInputRef}
-//                     type="file"
-//                     onChange={handleFileChange}
-//                     className="hidden"
-//                     multiple
-//                     accept="image/*,.pdf,.doc,.docx,.txt"
-//                   />
+//             {/* Hidden File Inputs - Placed at the bottom of the DOM */}
+//             <input
+//               ref={fileInputRef}
+//               type="file"
+//               onChange={handleFileChange}
+//               className="hidden"
+//               multiple
+//               accept="*/*"
+//             />
+//             <input
+//               ref={photoInputRef}
+//               type="file"
+//               onChange={handleFileChange}
+//               className="hidden"
+//               accept="image/*"
+//               capture="user"
+//             />
+//             {/* Dropdown Menu */}
+//             {hoverUpload && (
+//               <div className="absolute right-0 bottom-full mb-2 z-50">
+//                 <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700">
 //                   <button
-//                     type="button"
 //                     onClick={() => fileInputRef.current?.click()}
-//                     className="flex items-center w-full p-2 text-left text-sm text-gray-300 hover:bg-gray-700 rounded"
+//                     className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
 //                   >
-//                     <Camera className="w-4 h-4 mr-2" />
-//                     {/* No label text here */}
+//                     <Paperclip className="w-4 h-4" />
+//                     Choose Files
+//                   </button>
+//                   <button
+//                     onClick={() => photoInputRef.current?.click()}
+//                     className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+//                   >
+//                     <Camera className="w-4 h-4" />
+//                     Take Photo
 //                   </button>
 //                 </div>
 //               </div>
 //             )}
 //           </div>
-//           {/* Send Button on the far right */}
+//           {/* Send Button */}
 //           <button
-//             className="ml-2"
-//             aria-label="Send message"
 //             onClick={handleSend}
+//             className="p-2 text-gray-300 hover:text-white focus:outline-none ml-1"
+//             aria-label="Send message"
 //           >
-//             <Send className="w-5 h-5 text-gray-400" />
+//             <Send className="w-5 h-5" />
 //           </button>
 //         </div>
 //       </div>
 //     </div>
 //   );
 // }
-// File: /workspaces/medical_supplies/component/Chat_2.tsx
-__turbopack_esm__({
-    "default": (()=>Chat_2)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript) <export default as Upload>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Camera$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/camera.js [app-ssr] (ecmascript) <export default as Camera>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-ssr] (ecmascript) <export default as Send>");
-'use client';
-;
-;
-;
-function Chat_2({ onFileUpload }) {
-    const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
-    const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]); // Store conversation history
-    const [isUploadOpen, setIsUploadOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const fileInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    // Send the user message and generate a simulated AI response
-    const handleSend = ()=>{
-        const trimmed = message.trim();
-        if (!trimmed) return;
-        // Add user message to the conversation
-        setMessages((prev)=>[
-                ...prev,
-                {
-                    role: 'user',
-                    text: trimmed
-                }
-            ]);
-        setMessage('');
-        // Simulate a brief delay before the AI responds
-        setTimeout(()=>{
-            setMessages((prev)=>[
-                    ...prev,
-                    {
-                        role: 'assistant',
-                        text: generateAIResponse(trimmed)
-                    }
-                ]);
-        }, 600); // adjust delay as desired
-    };
-    // Very simple local function to generate a placeholder response
-    // You can replace this with real logic (like a fetch to your backend).
-    const generateAIResponse = (userText)=>{
-        // You can tailor the logic based on userText
-        if (userText.toLowerCase() === 'hi') {
-            return `Hello! How can I help you today?`;
-        }
-        // Otherwise, a generic echo
-        return `Simulated AI says: I heard you say "${userText}".`;
-    };
-    // Handle file selection
-    const handleFileChange = (e)=>{
-        if (e.target.files && e.target.files.length > 0) {
-            onFileUpload?.(e.target.files);
-        }
-        setIsUploadOpen(false);
-    };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "p-4 border-t border-gray-700 h-full flex flex-col",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1 overflow-y-auto mb-4 pr-1",
-                children: messages.map((msg, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-2",
-                        children: msg.role === 'user' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-white",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                    children: "You:"
-                                }, void 0, false, {
-                                    fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 289,
-                                    columnNumber: 17
-                                }, this),
-                                " ",
-                                msg.text
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 288,
-                            columnNumber: 15
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-blue-400",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                    children: "AI:"
-                                }, void 0, false, {
-                                    fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 293,
-                                    columnNumber: 17
-                                }, this),
-                                " ",
-                                msg.text
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 292,
-                            columnNumber: 15
-                        }, this)
-                    }, idx, false, {
-                        fileName: "[project]/component/Chat/Chat.tsx",
-                        lineNumber: 286,
-                        columnNumber: 11
-                    }, this))
-            }, void 0, false, {
-                fileName: "[project]/component/Chat/Chat.tsx",
-                lineNumber: 284,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex items-center bg-gray-800 rounded-xl px-4 py-3",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                            type: "text",
-                            value: message,
-                            onChange: (e)=>setMessage(e.target.value),
-                            placeholder: "Ask Medical Supplies...",
-                            className: "flex-1 bg-transparent focus:outline-none placeholder-gray-400"
-                        }, void 0, false, {
-                            fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 304,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative ml-2",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "button",
-                                    onClick: ()=>setIsUploadOpen(!isUploadOpen),
-                                    className: "p-2 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-lg",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
-                                        className: "w-5 h-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/component/Chat/Chat.tsx",
-                                        lineNumber: 319,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 314,
-                                    columnNumber: 13
-                                }, this),
-                                isUploadOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute bottom-full right-0 mb-2 w-40 bg-gray-800 rounded-lg shadow-lg border border-gray-700",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "p-2 space-y-2",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                ref: fileInputRef,
-                                                type: "file",
-                                                onChange: handleFileChange,
-                                                className: "hidden",
-                                                multiple: true,
-                                                accept: "image/*,.pdf,.doc,.docx,.txt"
-                                            }, void 0, false, {
-                                                fileName: "[project]/component/Chat/Chat.tsx",
-                                                lineNumber: 325,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                type: "button",
-                                                onClick: ()=>fileInputRef.current?.click(),
-                                                className: "flex items-center w-full p-2 text-left text-sm text-gray-300 hover:bg-gray-700 rounded",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Camera$3e$__["Camera"], {
-                                                    className: "w-4 h-4 mr-2"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/component/Chat/Chat.tsx",
-                                                    lineNumber: 338,
-                                                    columnNumber: 21
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/component/Chat/Chat.tsx",
-                                                lineNumber: 333,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/component/Chat/Chat.tsx",
-                                        lineNumber: 324,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 323,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 313,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            className: "ml-2",
-                            "aria-label": "Send message",
-                            onClick: handleSend,
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__["Send"], {
-                                className: "w-5 h-5 text-gray-400"
-                            }, void 0, false, {
-                                fileName: "[project]/component/Chat/Chat.tsx",
-                                lineNumber: 351,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 346,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/component/Chat/Chat.tsx",
-                    lineNumber: 302,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/component/Chat/Chat.tsx",
-                lineNumber: 301,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/component/Chat/Chat.tsx",
-        lineNumber: 282,
-        columnNumber: 5
-    }, this);
-}
 }}),
 "[project]/app/page.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -1007,11 +879,40 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 //     </div>
 //   );
 // }
-// File: /workspaces/medical_supplies/app/page.tsx
+// // File: /workspaces/medical_supplies/app/page.tsx
+// 'use client';
+// import Sidebar from "../component/Sidebar";
+// import Welcome from "../component/Welcome";
+// import Chat from "../component/Chat/Chat";
+// export default function Home() {
+//   // Optional: If you want to handle uploaded files here,
+//   // define a callback function:
+//   const handleFileUpload = (files: FileList) => {
+//     // Example: Just log the files for now
+//     console.log("Received files:", files);
+//     // You can add further logic to upload or process them.
+//   };
+//   return (
+//     <div className="grid min-h-screen grid-rows-[1fr] font-[family-name:var(--font-geist-sans)]">
+//       <div className="flex h-screen bg-gray-900 text-white">
+//         {/* Sidebar Component */}
+//         <Sidebar />
+//         {/* Main content area */}
+//         <div className="flex-1 flex flex-col">
+//           {/* Welcome Component */}
+//           <Welcome />
+//           {/*  Chat  */}
+//           <Chat onFileUpload={handleFileUpload} />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 __turbopack_esm__({
     "default": (()=>Home)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+// File: /workspaces/medical_supplies/app/page.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Sidebar.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Welcome$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Welcome.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/component/Chat/Chat.tsx [app-ssr] (ecmascript)");
@@ -1021,12 +922,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e
 ;
 ;
 function Home() {
-    // Optional: If you want to handle uploaded files here,
-    // define a callback function:
     const handleFileUpload = (files)=>{
-        // Example: Just log the files for now
         console.log("Received files:", files);
-    // You can add further logic to upload or process them.
+    // Add your file upload logic here
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "grid min-h-screen grid-rows-[1fr] font-[family-name:var(--font-geist-sans)]",
@@ -1035,7 +933,7 @@ function Home() {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 373,
+                    lineNumber: 408,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1043,31 +941,31 @@ function Home() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Welcome$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 378,
+                            lineNumber: 413,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$component$2f$Chat$2f$Chat$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             onFileUpload: handleFileUpload
                         }, void 0, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 381,
+                            lineNumber: 416,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 376,
+                    lineNumber: 411,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 370,
+            lineNumber: 406,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 369,
+        lineNumber: 405,
         columnNumber: 5
     }, this);
 }
@@ -1481,157 +1379,7 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/settings.js [app-ssr] (ecmascript)");
 }}),
-"[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
-{
-/**
- * @license lucide-react v0.473.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_esm__({
-    "__iconNode": (()=>__iconNode),
-    "default": (()=>Upload)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-ssr] (ecmascript)");
-;
-const __iconNode = [
-    [
-        "path",
-        {
-            d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
-            key: "ih7n3h"
-        }
-    ],
-    [
-        "polyline",
-        {
-            points: "17 8 12 3 7 8",
-            key: "t8dd8p"
-        }
-    ],
-    [
-        "line",
-        {
-            x1: "12",
-            x2: "12",
-            y1: "3",
-            y2: "15",
-            key: "widbto"
-        }
-    ]
-];
-const Upload = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("Upload", __iconNode);
-;
- //# sourceMappingURL=upload.js.map
-}}),
-"[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript) <export default as Upload>": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, t: __turbopack_require_real__ } = __turbopack_context__;
-{
-__turbopack_esm__({
-    "Upload": (()=>__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript)");
-}}),
-"[project]/node_modules/lucide-react/dist/esm/icons/camera.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
-{
-/**
- * @license lucide-react v0.473.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_esm__({
-    "__iconNode": (()=>__iconNode),
-    "default": (()=>Camera)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-ssr] (ecmascript)");
-;
-const __iconNode = [
-    [
-        "path",
-        {
-            d: "M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z",
-            key: "1tc9qg"
-        }
-    ],
-    [
-        "circle",
-        {
-            cx: "12",
-            cy: "13",
-            r: "3",
-            key: "1vg3eu"
-        }
-    ]
-];
-const Camera = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("Camera", __iconNode);
-;
- //# sourceMappingURL=camera.js.map
-}}),
-"[project]/node_modules/lucide-react/dist/esm/icons/camera.js [app-ssr] (ecmascript) <export default as Camera>": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, t: __turbopack_require_real__ } = __turbopack_context__;
-{
-__turbopack_esm__({
-    "Camera": (()=>__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/camera.js [app-ssr] (ecmascript)");
-}}),
-"[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
-{
-/**
- * @license lucide-react v0.473.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_esm__({
-    "__iconNode": (()=>__iconNode),
-    "default": (()=>Send)
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-ssr] (ecmascript)");
-;
-const __iconNode = [
-    [
-        "path",
-        {
-            d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
-            key: "1ffxy3"
-        }
-    ],
-    [
-        "path",
-        {
-            d: "m21.854 2.147-10.94 10.939",
-            key: "12cjpa"
-        }
-    ]
-];
-const Send = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("Send", __iconNode);
-;
- //# sourceMappingURL=send.js.map
-}}),
-"[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-ssr] (ecmascript) <export default as Send>": ((__turbopack_context__) => {
-"use strict";
-
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, t: __turbopack_require_real__ } = __turbopack_context__;
-{
-__turbopack_esm__({
-    "Send": (()=>__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])
-});
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-ssr] (ecmascript)");
-}}),
 
 };
 
-//# sourceMappingURL=%5Broot%20of%20the%20server%5D__3da2dd._.js.map
+//# sourceMappingURL=%5Broot%20of%20the%20server%5D__d7616c._.js.map
