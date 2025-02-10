@@ -134,9 +134,9 @@
 //             </button>
 
 //             {/* Dropdown Menu */}
-//             <div 
-//               className="absolute right-0 bottom-full mb-2 translate-y-2 opacity-0 invisible 
-//                          group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible 
+//             <div
+//               className="absolute right-0 bottom-full mb-2 translate-y-2 opacity-0 invisible
+//                          group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible
 //                          transition-all duration-200 ease-out z-50"
 //             >
 //               <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700">
@@ -172,20 +172,14 @@
 //   );
 // }
 
-
-'use client';
+"use client";
 
 // File: /workspaces/medical_supplies/component/Chat/Chat.tsx
-import React, { useState, useRef } from 'react';
-import {
-  Send,
-  Upload,
-  Paperclip,
-  Camera,
-} from 'lucide-react';
+import React, { useState, useRef } from "react";
+import { Send, Upload, Paperclip, Camera } from "lucide-react";
 
 interface ChatMessage {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   text: string;
 }
 
@@ -195,7 +189,7 @@ interface ChatProps {
 
 export default function Chat({ onFileUpload }: ChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [hoverUpload, setHoverUpload] = useState(false);
 
@@ -205,20 +199,23 @@ export default function Chat({ onFileUpload }: ChatProps) {
   const handleSend = () => {
     const trimmed = message.trim();
     if (!trimmed) return;
-    setMessages((prev) => [...prev, { role: 'user', text: trimmed }]);
-    setMessage('');
+    setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
+    setMessage("");
 
     setTimeout(() => {
-      setMessages((prev) => [...prev, {
-        role: 'assistant',
-        text: generateAIResponse(trimmed),
-      }]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          text: generateAIResponse(trimmed),
+        },
+      ]);
     }, 600);
   };
 
   const generateAIResponse = (userText: string) => {
-    if (userText.toLowerCase() === 'hi') {
-      return 'Hello! How can I help you today?';
+    if (userText.toLowerCase() === "hi") {
+      return "Hello! How can I help you today?";
     }
     return `Simulated AI says: I heard you say "${userText}".`;
   };
@@ -226,10 +223,10 @@ export default function Chat({ onFileUpload }: ChatProps) {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const filesArray = Array.from(e.target.files);
-      setUploadedFiles(prev => [...prev, ...filesArray]);
+      setUploadedFiles((prev) => [...prev, ...filesArray]);
       onFileUpload?.(e.target.files);
       // Reset the input value to allow selecting the same file again
-      e.target.value = '';
+      e.target.value = "";
     }
   };
 
@@ -239,8 +236,11 @@ export default function Chat({ onFileUpload }: ChatProps) {
       <div className="flex-1 overflow-y-auto p-4">
         {messages.map((msg, idx) => (
           <div key={idx} className="mb-4">
-            <div className={msg.role === 'user' ? "text-white" : "text-blue-400"}>
-              <strong>{msg.role === 'user' ? 'You:' : 'Assistant:'}</strong> {msg.text}
+            <div
+              className={msg.role === "user" ? "text-white" : "text-blue-400"}
+            >
+              <strong>{msg.role === "user" ? "You:" : "Assistant:"}</strong>{" "}
+              {msg.text}
             </div>
           </div>
         ))}
@@ -253,7 +253,7 @@ export default function Chat({ onFileUpload }: ChatProps) {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
+            onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
             placeholder="Ask Medical Supplies..."
             className="flex-1 bg-transparent focus:outline-none placeholder-gray-400"
           />

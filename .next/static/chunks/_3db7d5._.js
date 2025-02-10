@@ -17,7 +17,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Settings$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/settings.js [app-client] (ecmascript) <export default as Settings>");
 ;
 var _s = __turbopack_refresh__.signature();
-'use client';
+"use client";
 ;
 ;
 function Sidebar() {
@@ -32,7 +32,7 @@ function Sidebar() {
         className: `
         bg-gray-800 flex flex-col items-center py-4 border-r border-gray-700
         transition-all duration-300
-        ${isOpen ? 'w-48' : 'w-16'}
+        ${isOpen ? "w-48" : "w-16"}
       `,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -43,12 +43,12 @@ function Sidebar() {
                     className: "w-6 h-6"
                 }, void 0, false, {
                     fileName: "[project]/component/Sidebar.tsx",
-                    lineNumber: 38,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/component/Sidebar.tsx",
-                lineNumber: 33,
+                lineNumber: 27,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -59,12 +59,12 @@ function Sidebar() {
                     children: "+"
                 }, void 0, false, {
                     fileName: "[project]/component/Sidebar.tsx",
-                    lineNumber: 43,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/component/Sidebar.tsx",
-                lineNumber: 42,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -82,7 +82,7 @@ function Sidebar() {
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/component/Sidebar.tsx",
-                        lineNumber: 48,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -107,7 +107,7 @@ function Sidebar() {
                             className: "w-6 h-6"
                         }, void 0, false, {
                             fileName: "[project]/component/Sidebar.tsx",
-                            lineNumber: 55,
+                            lineNumber: 58,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
@@ -122,24 +122,24 @@ function Sidebar() {
                             className: "w-6 h-6"
                         }, void 0, false, {
                             fileName: "[project]/component/Sidebar.tsx",
-                            lineNumber: 58,
+                            lineNumber: 64,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/component/Sidebar.tsx",
-                        lineNumber: 57,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/component/Sidebar.tsx",
-                lineNumber: 47,
+                lineNumber: 44,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/component/Sidebar.tsx",
-        lineNumber: 25,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 }
@@ -160,11 +160,32 @@ __turbopack_esm__({
     "default": (()=>Welcome)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-'use client';
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$react$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@clerk/shared/dist/react/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$clerk$2d$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_import__("[project]/node_modules/@clerk/clerk-react/dist/index.mjs [app-client] (ecmascript) <locals>");
+;
+var _s = __turbopack_refresh__.signature();
+"use client";
 ;
 function Welcome() {
-    // Hardcoded userName for demonstration
-    const userName = 'Ngesa';
+    _s();
+    const { user, isLoaded } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$react$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUser"])();
+    // Show loading state while user data is being fetched
+    if (!isLoaded) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "flex items-center justify-center h-screen",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400"
+            }, void 0, false, {
+                fileName: "[project]/component/Welcome.tsx",
+                lineNumber: 16,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/component/Welcome.tsx",
+            lineNumber: 15,
+            columnNumber: 7
+        }, this);
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -178,7 +199,7 @@ function Welcome() {
                                 children: "model"
                             }, void 0, false, {
                                 fileName: "[project]/component/Welcome.tsx",
-                                lineNumber: 16,
+                                lineNumber: 26,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -186,80 +207,83 @@ function Welcome() {
                                 children: "techx 1.0"
                             }, void 0, false, {
                                 fileName: "[project]/component/Welcome.tsx",
-                                lineNumber: 17,
+                                lineNumber: 27,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/component/Welcome.tsx",
-                        lineNumber: 15,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center space-x-4",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-8 h-8 bg-blue-600 rounded-full"
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$clerk$2d$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["UserButton"], {
+                            afterSignOutUrl: "/sign-in",
+                            appearance: {
+                                elements: {
+                                    avatarBox: "w-8 h-8"
+                                }
+                            }
                         }, void 0, false, {
                             fileName: "[project]/component/Welcome.tsx",
-                            lineNumber: 21,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/component/Welcome.tsx",
-                        lineNumber: 19,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/component/Welcome.tsx",
-                lineNumber: 14,
+                lineNumber: 24,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1 overflow-y-auto p-4",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex flex-col items-center justify-center h-full",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-4xl mb-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-blue-400",
-                                children: "Hello"
-                            }, void 0, false, {
-                                fileName: "[project]/component/Welcome.tsx",
-                                lineNumber: 29,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-pink-400",
-                                children: [
-                                    ", ",
-                                    userName
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/component/Welcome.tsx",
-                                lineNumber: 30,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/component/Welcome.tsx",
-                        lineNumber: 28,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
+                className: "flex flex-col items-center justify-center h-full",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                    className: "text-4xl mb-4 mt-8",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "text-blue-400",
+                            children: "Hello"
+                        }, void 0, false, {
+                            fileName: "[project]/component/Welcome.tsx",
+                            lineNumber: 45,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "text-pink-400",
+                            children: [
+                                ", ",
+                                user?.firstName || user?.username || "there"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/component/Welcome.tsx",
+                            lineNumber: 46,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/component/Welcome.tsx",
-                    lineNumber: 27,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/component/Welcome.tsx",
-                lineNumber: 26,
+                lineNumber: 43,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
+_s(Welcome, "ZUuuSKp+2uHP0mhnxk9mE4npcsg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$react$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUser"]
+    ];
+});
 _c = Welcome;
 var _c;
 __turbopack_refresh__.register(_c, "Welcome");
@@ -393,9 +417,9 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 //               <Upload className="w-5 h-5" />
 //             </button>
 //             {/* Dropdown Menu */}
-//             <div 
-//               className="absolute right-0 bottom-full mb-2 translate-y-2 opacity-0 invisible 
-//                          group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible 
+//             <div
+//               className="absolute right-0 bottom-full mb-2 translate-y-2 opacity-0 invisible
+//                          group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible
 //                          transition-all duration-200 ease-out z-50"
 //             >
 //               <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700">
@@ -441,13 +465,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/send.js [app-client] (ecmascript) <export default as Send>");
 ;
 var _s = __turbopack_refresh__.signature();
-'use client';
+"use client";
 ;
 ;
 function Chat({ onFileUpload }) {
     _s();
     const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [uploadedFiles, setUploadedFiles] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [hoverUpload, setHoverUpload] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const fileInputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -458,24 +482,24 @@ function Chat({ onFileUpload }) {
         setMessages((prev)=>[
                 ...prev,
                 {
-                    role: 'user',
+                    role: "user",
                     text: trimmed
                 }
             ]);
-        setMessage('');
+        setMessage("");
         setTimeout(()=>{
             setMessages((prev)=>[
                     ...prev,
                     {
-                        role: 'assistant',
+                        role: "assistant",
                         text: generateAIResponse(trimmed)
                     }
                 ]);
         }, 600);
     };
     const generateAIResponse = (userText)=>{
-        if (userText.toLowerCase() === 'hi') {
-            return 'Hello! How can I help you today?';
+        if (userText.toLowerCase() === "hi") {
+            return "Hello! How can I help you today?";
         }
         return `Simulated AI says: I heard you say "${userText}".`;
     };
@@ -488,7 +512,7 @@ function Chat({ onFileUpload }) {
                 ]);
             onFileUpload?.(e.target.files);
             // Reset the input value to allow selecting the same file again
-            e.target.value = '';
+            e.target.value = "";
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -499,13 +523,13 @@ function Chat({ onFileUpload }) {
                 children: messages.map((msg, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mb-4",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: msg.role === 'user' ? "text-white" : "text-blue-400",
+                            className: msg.role === "user" ? "text-white" : "text-blue-400",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                    children: msg.role === 'user' ? 'You:' : 'Assistant:'
+                                    children: msg.role === "user" ? "You:" : "Assistant:"
                                 }, void 0, false, {
                                     fileName: "[project]/component/Chat/Chat.tsx",
-                                    lineNumber: 243,
+                                    lineNumber: 242,
                                     columnNumber: 15
                                 }, this),
                                 " ",
@@ -513,17 +537,17 @@ function Chat({ onFileUpload }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/component/Chat/Chat.tsx",
-                            lineNumber: 242,
+                            lineNumber: 239,
                             columnNumber: 13
                         }, this)
                     }, idx, false, {
                         fileName: "[project]/component/Chat/Chat.tsx",
-                        lineNumber: 241,
+                        lineNumber: 238,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/component/Chat/Chat.tsx",
-                lineNumber: 239,
+                lineNumber: 236,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -535,7 +559,7 @@ function Chat({ onFileUpload }) {
                             type: "text",
                             value: message,
                             onChange: (e)=>setMessage(e.target.value),
-                            onKeyDown: (e)=>e.key === 'Enter' && !e.shiftKey && handleSend(),
+                            onKeyDown: (e)=>e.key === "Enter" && !e.shiftKey && handleSend(),
                             placeholder: "Ask Medical Supplies...",
                             className: "flex-1 bg-transparent focus:outline-none placeholder-gray-400"
                         }, void 0, false, {
@@ -676,11 +700,11 @@ function Chat({ onFileUpload }) {
         ]
     }, void 0, true, {
         fileName: "[project]/component/Chat/Chat.tsx",
-        lineNumber: 237,
+        lineNumber: 234,
         columnNumber: 5
     }, this);
 }
-_s(Chat, "fUYcBq90sqHt4FmY7OwOkXyj1JI=");
+_s(Chat, "ApB1IUF7k4vLsizpfjc+OKCvJAU=");
 _c = Chat;
 var _c;
 __turbopack_refresh__.register(_c, "Chat");

@@ -1,12 +1,22 @@
-'use client';
+"use client";
+
+import { useUser, UserButton } from "@clerk/nextjs";
 
 /**
  * Welcome component displaying the main header, user greeting,
- * and any additional main content.
+ * and any additional main content using Clerk user data.
  */
 export default function Welcome() {
-  // Hardcoded userName for demonstration
-  const userName = 'Ngesa';
+  const { user, isLoaded } = useUser();
+
+  // Show loading state while user data is being fetched
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400"></div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -17,20 +27,26 @@ export default function Welcome() {
           <span className="text-sm text-gray-400">techx 1.0</span>
         </div>
         <div className="flex items-center space-x-4">
-          {/* Placeholder for user avatar or profile picture */}
-          <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
+          {/* Clerk's UserButton component for profile management */}
+          <UserButton
+            afterSignOutUrl="/sign-in"
+            appearance={{
+              elements: {
+                avatarBox: "w-8 h-8",
+              },
+            }}
+          />
         </div>
       </header>
 
       {/* Main Content Area */}
-      <div className="flex-1 overflow-y-auto p-4">
-        <div className="flex flex-col items-center justify-center h-full">
-          <h2 className="text-4xl mb-4">
-            <span className="text-blue-400">Hello</span>
-            <span className="text-pink-400">, {userName}</span>
-          </h2>
-          {/* Additional welcome text or components can go here */}
-        </div>
+      <div className="flex flex-col items-center justify-center h-full">
+        <h2 className="text-4xl mb-4 mt-8">
+          <span className="text-blue-400">Hello</span>
+          <span className="text-pink-400">
+            , {user?.firstName || user?.username || "there"}
+          </span>
+        </h2>
       </div>
     </>
   );
