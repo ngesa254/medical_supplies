@@ -1,7 +1,8 @@
 node_modules
 
+.next
+.history
 # clerk configuration (can include secrets)
 /.clerk/
 
-.next
-.history
+.env.local
