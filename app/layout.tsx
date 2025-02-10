@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ClerkProvider } from "@clerk/nextjs";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -27,12 +26,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          <div
-            className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 min-h-screen`}
-          >
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        
             {children}
-          </div>
+     
         </body>
       </html>
     </ClerkProvider>
