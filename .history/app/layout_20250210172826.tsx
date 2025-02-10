@@ -26,10 +26,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
+        <body>
+        
+            {children}
+     
         </body>
       </html>
     </ClerkProvider>
