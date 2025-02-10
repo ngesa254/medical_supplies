@@ -50,7 +50,7 @@ const ProtectedContent = () => {
 
 // Main Home component with auth flow
 export default function Home() {
-  return ( 
+  return (
     <>
       <SignedIn>
         <ProtectedContent />
