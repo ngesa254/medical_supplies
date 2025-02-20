@@ -43,14 +43,13 @@ const products: ProductRating[] = [
   },
   {
     id: "2",
-    image: "/gloves2.jpg",
+    image: "/gloves1.jpg",
     name: "Exam Gloves",
     averageRating: 2.1,
     numberOfRatings: 2152,
     priorityRanking: 50,
     opportunity: "High Opportunity",
   },
-  // Add more products...
 ];
 
 const StatCard = ({
