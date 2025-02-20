@@ -1,40 +1,29 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import Sidebar from "@/component/Sidebar";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
-import { ClerkProvider } from "@clerk/nextjs";
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Medical Supplies Assistant",
-  description: "Your AI assistant for medical supplies",
+  title: "AMS AI System",
+  description: "Medical Supply Management System",
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
-          <div
-            className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 min-h-screen`}
-          >
-            {children}
-          </div>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <div className="flex h-screen overflow-hidden">
+          <Sidebar />
+          <main className="flex-1 overflow-y-auto bg-gray-50">{children}</main>
+        </div>
+      </body>
+    </html>
   );
 }

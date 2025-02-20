@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      navy: {
+        800: "#1e2a4a",
+        900: "#0f172a",
+      },
     },
   },
   plugins: [],
