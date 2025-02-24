@@ -1,6 +1,7 @@
+// components/UpgradeBanner.tsx
 import React from "react";
 import { useTier } from "../context/TierContext";
-import { UserTier } from "../types/auth";
+import { UserTier, UserTierFeatures, tierFeatures } from "../types/auth";
 
 interface UpgradeBannerProps {
   requiredFeature: keyof UserTierFeatures;

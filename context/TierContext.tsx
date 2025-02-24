@@ -1,6 +1,24 @@
+"use client";
+
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useUser } from "@clerk/nextjs";
 import { UserTier, tierFeatures, UserTierFeatures } from "../types/auth";
+
+// For Clerk's useUser hook
+interface ClerkUser {
+  user: {
+    id: string;
+    publicMetadata?: Record<string, any>;
+    update?: (data: { publicMetadata: any }) => Promise<any>;
+  } | null;
+}
+
+// Mock useUser hook if not using Clerk
+const useUser = (): ClerkUser => {
+  // Return a mock user object that matches the shape we need
+  return {
+    user: null,
+  };
+};
 
 interface TierContextType {
   currentTier: UserTier;
@@ -16,11 +34,11 @@ const TierContext = createContext<TierContextType | null>(null);
 export const TierProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
   const [currentTier, setCurrentTier] = useState<UserTier>(UserTier.TIER_1);
 
   useEffect(() => {
-    if (isLoaded && user) {
+    if (user) {
       // In a real app, you would fetch the user's tier from your database
       // For now, we'll use public metadata from Clerk if it exists
       const userTier = user.publicMetadata?.tier as UserTier;
@@ -28,14 +46,14 @@ export const TierProvider: React.FC<{ children: React.ReactNode }> = ({
         setCurrentTier(userTier);
       }
     }
-  }, [isLoaded, user]);
+  }, [user]);
 
   const setTier = async (tier: UserTier) => {
     setCurrentTier(tier);
 
     // In a real application, you would update this in your database
     // For Clerk, you can update public metadata
-    if (user) {
+    if (user && user.update) {
       try {
         await user.update({
           publicMetadata: { tier },
