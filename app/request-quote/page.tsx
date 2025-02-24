@@ -45,8 +45,6 @@ export default function HomeComponent() {
         "https://ams-api-534297186371.us-central1.run.app/query/",
         {
           method: "POST",
-          mode: "cors",
-          credentials: "same-origin",
           headers: {
             "Content-Type": "application/json",
           },
