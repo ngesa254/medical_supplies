@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Sidebar from "@/component/Sidebar";
+import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
@@ -17,7 +17,9 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+  }) {
+  
+  
   return (
     <ClerkProvider>
       <TierProvider>

@@ -48,6 +48,7 @@ export default function HomeComponent() {
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "no-cors",
           body: JSON.stringify({
             question: inputText,
           }),

@@ -1,9 +1,23 @@
 "use client";
 
 import { SignIn } from "@clerk/nextjs";
-import Image from "next/image";
+import { useAuth } from "@clerk/nextjs";
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SignInPage() {
+  const { isLoaded, isSignedIn } = useAuth();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect_url") || "/";
+
+  // Redirect to dashboard if already signed in
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      router.push(redirectUrl);
+    }
+  }, [isLoaded, isSignedIn, router, redirectUrl]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="max-w-4xl w-full px-4">
@@ -18,15 +32,11 @@ export default function SignInPage() {
                 Sign in to access your dashboard and continue your journey with
                 us.
               </p>
-              {/* Optional: Add your logo here */}
+              {/* Logo placeholder */}
               <div className="hidden md:block opacity-80">
-                <Image
-                  src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-1.svg" // Replace with your logo path
-                  alt="Logo"
-                  width={150}
-                  height={150}
-                  className="mx-auto md:mx-0"
-                />
+                <div className="h-32 w-32 rounded-full bg-white/30 flex items-center justify-center mx-auto md:mx-0">
+                  <span className="text-white text-3xl font-bold">AMS</span>
+                </div>
               </div>
             </div>
           </div>
@@ -52,7 +62,7 @@ export default function SignInPage() {
                   footerActionText: "text-gray-400",
                 },
               }}
-              redirectUrl={"/"}
+              redirectUrl={redirectUrl}
               signUpUrl="/sign-up"
             />
           </div>
