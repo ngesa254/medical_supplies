@@ -43,28 +43,30 @@ export default function SignInPage() {
 
           {/* Right side - Sign In Component */}
           <div className="w-full md:w-1/2 p-8 bg-gray-700">
-            <SignIn
-              appearance={{
-                elements: {
-                  formButtonPrimary:
-                    "bg-blue-600 hover:bg-blue-700 text-sm normal-case",
-                  card: "bg-transparent shadow-none",
-                  headerTitle: "text-white",
-                  headerSubtitle: "text-gray-400",
-                  socialButtonsBlockButton:
-                    "bg-gray-700 hover:bg-gray-600 border-gray-600",
-                  socialButtonsBlockButtonText: "text-white",
-                  dividerLine: "bg-gray-600",
-                  dividerText: "text-gray-400",
-                  formFieldLabel: "text-gray-300",
-                  formFieldInput: "bg-gray-700 border-gray-600 text-white",
-                  footerActionLink: "text-blue-400 hover:text-blue-500",
-                  footerActionText: "text-gray-400",
-                },
-              }}
-              redirectUrl={redirectUrl}
-              signUpUrl="/sign-up"
-            />
+            {isLoaded && (
+              <SignIn
+                appearance={{
+                  elements: {
+                    formButtonPrimary:
+                      "bg-blue-600 hover:bg-blue-700 text-sm normal-case",
+                    card: "bg-transparent shadow-none",
+                    headerTitle: "text-white",
+                    headerSubtitle: "text-gray-400",
+                    socialButtonsBlockButton:
+                      "bg-gray-700 hover:bg-gray-600 border-gray-600",
+                    socialButtonsBlockButtonText: "text-white",
+                    dividerLine: "bg-gray-600",
+                    dividerText: "text-gray-400",
+                    formFieldLabel: "text-gray-300",
+                    formFieldInput: "bg-gray-700 border-gray-600 text-white",
+                    footerActionLink: "text-blue-400 hover:text-blue-500",
+                    footerActionText: "text-gray-400",
+                  },
+                }}
+                redirectUrl={redirectUrl}
+                signUpUrl="/sign-up"
+              />
+            )}
           </div>
         </div>
       </div>
