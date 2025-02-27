@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Sidebar from "@/component/Sidebar";
-import "./globals.css";
-
-import { ClerkProvider } from "@clerk/nextjs";
+import Sidebar from "@/components/Sidebar";
+import "../globals.css";
 import { TierProvider } from "@/context/TierContext";
+import { Providers } from "../providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +16,11 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+  }) {
+  
+  
   return (
-    <ClerkProvider>
+    <Providers>
       <TierProvider>
         <html lang="en">
           <body className={inter.className}>
@@ -32,6 +33,6 @@ export default function RootLayout({
           </body>
         </html>
       </TierProvider>
-    </ClerkProvider>
+    </Providers>
   );
 }

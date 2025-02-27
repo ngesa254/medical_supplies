@@ -1,9 +1,23 @@
 "use client";
 
 import { SignUp } from "@clerk/nextjs";
-import Image from "next/image";
+import { useAuth } from "@clerk/nextjs";
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SignUpPage() {
+  const { isLoaded, isSignedIn } = useAuth();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect_url") || "/";
+
+  // Redirect to dashboard if already signed in
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      router.push(redirectUrl);
+    }
+  }, [isLoaded, isSignedIn, router, redirectUrl]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="max-w-4xl w-full px-4">
@@ -17,15 +31,11 @@ export default function SignUpPage() {
               <p className="text-gray-200 mb-6">
                 Create your account and start exploring our platform.
               </p>
-              {/* Optional: Add your logo here */}
+              {/* Logo placeholder */}
               <div className="hidden md:block opacity-80">
-                <Image
-                  src="/your-logo.png" // Replace with your logo path
-                  alt="Logo"
-                  width={150}
-                  height={150}
-                  className="mx-auto md:mx-0"
-                />
+                <div className="h-32 w-32 rounded-full bg-white/30 flex items-center justify-center mx-auto md:mx-0">
+                  <span className="text-white text-3xl font-bold">AMS</span>
+                </div>
               </div>
             </div>
           </div>
@@ -51,7 +61,7 @@ export default function SignUpPage() {
                   footerActionText: "text-gray-400",
                 },
               }}
-              redirectUrl={"/"}
+              redirectUrl={redirectUrl}
               signInUrl="/sign-in"
             />
           </div>

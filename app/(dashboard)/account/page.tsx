@@ -1,12 +1,65 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTier } from "@/context/TierContext";
 import { UserTier } from "@/types/auth";
 import { ChevronDown, CreditCard, Shield, Zap, Check } from "lucide-react";
+import { useUser } from "@clerk/nextjs";
 
 export default function AccountPage() {
   const { currentTier, setTier, getTierName } = useTier();
+  const { user, isLoaded } = useUser();
+  const [joinDate, setJoinDate] = useState("");
+  const [lastLogin, setLastLogin] = useState("");
+
+  // Format the user's creation date and last sign in date when user data is loaded
+  useEffect(() => {
+    if (isLoaded && user) {
+      // Format creation date
+      if (user.createdAt) {
+        const createdAt = new Date(user.createdAt);
+        setJoinDate(
+          createdAt.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        );
+      }
+
+      // Format last sign in date (using current date for demo if not available)
+      if (user.lastSignInAt) {
+        const lastSignIn = new Date(user.lastSignInAt);
+        const today = new Date();
+
+        // If last sign in was today, show time
+        if (lastSignIn.toDateString() === today.toDateString()) {
+          setLastLogin(
+            `Today at ${lastSignIn.toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+            })}`
+          );
+        } else {
+          setLastLogin(
+            lastSignIn.toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+            })
+          );
+        }
+      } else {
+        // Fallback if lastSignInAt isn't available
+        const now = new Date();
+        setLastLogin(
+          `Today at ${now.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+          })}`
+        );
+      }
+    }
+  }, [isLoaded, user]);
 
   const handleTierChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newTier = parseInt(event.target.value) as UserTier;
@@ -26,6 +79,48 @@ export default function AccountPage() {
     }
   };
 
+  // Display loading state while user data is being fetched
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-6">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-2xl font-semibold text-gray-900 mb-6">
+            Account & Subscription
+          </h1>
+          <div className="bg-white shadow rounded-lg overflow-hidden mb-6 p-6">
+            <div className="animate-pulse">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 rounded-full bg-gray-300"></div>
+                <div className="flex-1 space-y-2">
+                  <div className="h-5 bg-gray-300 rounded w-1/4"></div>
+                  <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+                  <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+                </div>
+              </div>
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i}>
+                    <div className="h-3 bg-gray-300 rounded w-1/4 mb-2"></div>
+                    <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Get user info from Clerk
+  const firstName = user?.firstName || "";
+  const lastName = user?.lastName || "";
+  const fullName =
+    user?.fullName || `${firstName} ${lastName}`.trim() || "User";
+  const email = user?.primaryEmailAddress?.emailAddress || "";
+  const imageUrl = user?.imageUrl;
+  const firstInitial = fullName.charAt(0).toUpperCase();
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto">
@@ -42,13 +137,21 @@ export default function AccountPage() {
           </div>
           <div className="p-6">
             <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-medium">
-                R
-              </div>
+              {imageUrl ? (
+                <img
+                  src={imageUrl}
+                  alt={fullName}
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center text-white text-2xl font-medium">
+                  {firstInitial}
+                </div>
+              )}
               <div>
-                <h3 className="text-xl font-medium">Roy Weber</h3>
+                <h3 className="text-xl font-medium">{fullName}</h3>
                 <p className="text-gray-600">Purchasing Manager</p>
-                <p className="text-gray-600">procurement@bighospital.com</p>
+                <p className="text-gray-600">{email}</p>
               </div>
             </div>
 
@@ -69,13 +172,13 @@ export default function AccountPage() {
                 <h4 className="text-sm font-medium text-gray-500 mb-1">
                   Member Since
                 </h4>
-                <p className="text-gray-900">January 15, 2023</p>
+                <p className="text-gray-900">{joinDate}</p>
               </div>
               <div>
                 <h4 className="text-sm font-medium text-gray-500 mb-1">
                   Last Login
                 </h4>
-                <p className="text-gray-900">Today at 9:42 AM</p>
+                <p className="text-gray-900">{lastLogin}</p>
               </div>
             </div>
           </div>
