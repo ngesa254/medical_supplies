@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Home,
@@ -18,9 +18,11 @@ import {
   User,
   ChevronUp,
   ChevronDown,
+  LogOut,
 } from "lucide-react";
 import { useTier } from "../context/TierContext";
 import { UserTier } from "../types/auth";
+import { useClerk, useUser } from "@clerk/nextjs";
 
 interface SidebarItemProps {
   icon: React.ReactNode;
@@ -29,13 +31,14 @@ interface SidebarItemProps {
   expanded?: boolean;
   subItems?: { text: string; href: string; requiredTier?: UserTier }[];
   requiredTier?: UserTier; // Minimum tier required to access this feature
+  onClick?: () => void;
 }
 
 interface UserProps {
   name: string;
   role: string;
   email: string;
-  avatar?: string;
+  imageUrl?: string;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -45,6 +48,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   expanded = false,
   subItems = [],
   requiredTier,
+  onClick,
 }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
@@ -53,6 +57,24 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
   // Check if this feature is available in the current tier
   const isAvailable = !requiredTier || currentTier >= requiredTier;
+
+  // If there's an onClick handler, use it instead of navigation
+  if (onClick) {
+    return (
+      <div className="relative group">
+        <div
+          onClick={onClick}
+          className={`
+            flex items-center space-x-2 p-2 rounded-lg cursor-pointer relative
+            hover:bg-gray-50 text-gray-700
+          `}
+        >
+          <span className="text-indigo-500">{icon}</span>
+          <span className="flex-1 font-medium">{text}</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative group">
@@ -203,31 +225,87 @@ const TierBadge: React.FC = () => {
   );
 };
 
-const UserProfile: React.FC<UserProps> = ({ name, role, email, avatar }) => {
-  return (
-    <div className="flex items-center space-x-3 p-4 border-t border-gray-200 bg-gray-50">
-      <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shadow-sm">
-        {avatar ? (
-          <img src={avatar} alt={name} className="w-full h-full object-cover" />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-indigo-600 text-white">
-            {name.charAt(0)}
+const UserProfile: React.FC = () => {
+  const { user } = useUser();
+  const { signOut } = useClerk();
+  const router = useRouter();
+  const { currentTier, getTierName } = useTier();
+
+  // Handle logout
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/sign-in");
+  };
+
+  if (!user) {
+    return (
+      <div className="p-4 border-t border-gray-200 bg-gray-50 animate-pulse">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+          <div className="flex-1">
+            <div className="h-3 bg-gray-300 rounded w-3/4 mb-2"></div>
+            <div className="h-2 bg-gray-300 rounded w-1/2"></div>
           </div>
-        )}
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-gray-900 truncate">{name}</p>
-        <div className="flex items-center space-x-2">
-          <p className="text-xs text-gray-500 truncate">{role}</p>
-          <TierBadge />
         </div>
-        <p className="text-xs text-gray-500 truncate">{email}</p>
+      </div>
+    );
+  }
+
+  // Get user info from Clerk
+  const name = user.fullName || user.firstName || "User";
+  const email = user.primaryEmailAddress?.emailAddress || "";
+  const imageUrl = user.imageUrl;
+  const role = "Purchasing Manager"; // This would typically come from your app's role management
+
+  return (
+    <div className="border-t border-gray-200 bg-gray-50">
+      <div className="flex items-center space-x-3 p-4">
+        <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shadow-sm">
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt={name}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-indigo-600 text-white">
+              {name.charAt(0)}
+            </div>
+          )}
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-medium text-gray-900 truncate">{name}</p>
+          <div className="flex items-center space-x-2">
+            <p className="text-xs text-gray-500 truncate">{role}</p>
+            <TierBadge />
+          </div>
+          <p className="text-xs text-gray-500 truncate">{email}</p>
+        </div>
+      </div>
+
+      {/* Logout button */}
+      <div className="px-4 pb-4">
+        <button
+          onClick={handleSignOut}
+          className="w-full flex items-center justify-center space-x-2 p-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <LogOut size={16} />
+          <span>Sign Out</span>
+        </button>
       </div>
     </div>
   );
 };
 
 export default function Sidebar() {
+  const { signOut } = useClerk();
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/sign-in");
+  };
+
   return (
     <div className="w-64 bg-white h-full flex flex-col border-r border-gray-200 shadow-sm">
       {/* Logo */}
@@ -318,12 +396,8 @@ export default function Sidebar() {
         </div>
       </nav>
 
-      {/* User Profile */}
-      <UserProfile
-        name="Roy Weber"
-        role="Purchasing Manager"
-        email="procurement@bighospital.com"
-      />
+      {/* User Profile with Clerk Integration */}
+      <UserProfile />
     </div>
   );
 }
