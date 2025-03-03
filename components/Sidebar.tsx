@@ -30,6 +30,7 @@ interface SidebarItemProps {
   expanded?: boolean;
   subItems?: { text: string; href: string }[];
   onClick?: () => void;
+  requiredTier?: UserTier; // Minimum tier required to access this feature
 }
 
 const SidebarItem: React.FC<SidebarItemProps & { tier: UserTier }> = ({
@@ -40,29 +41,33 @@ const SidebarItem: React.FC<SidebarItemProps & { tier: UserTier }> = ({
   subItems = [],
   onClick,
   tier,
+  requiredTier,
 }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
   const [isOpen, setIsOpen] = React.useState(false);
 
+  // Check if this feature is available in the current tier
+  const isAvailable = !requiredTier || tier >= requiredTier;
+
   // Get tier-specific colors
   const getTierColors = () => {
     switch (tier) {
-      case UserTier.TIER_1: // Basic - Gray theme
+      case UserTier.TIER_1: // Chat Only - Gray theme
         return {
           icon: "text-gray-600",
           activeBackground: "bg-gray-100",
           activeText: "text-gray-800",
           hoverBackground: "hover:bg-gray-50",
         };
-      case UserTier.TIER_2: // Pro - Blue theme
+      case UserTier.TIER_2: // Inventory Data - Blue theme
         return {
           icon: "text-blue-600",
           activeBackground: "bg-blue-50",
           activeText: "text-blue-800",
           hoverBackground: "hover:bg-blue-50",
         };
-      case UserTier.TIER_3: // Enterprise - Purple theme
+      case UserTier.TIER_3: // Full Integration - Purple theme
         return {
           icon: "text-purple-600",
           activeBackground: "bg-purple-50",
@@ -94,6 +99,23 @@ const SidebarItem: React.FC<SidebarItemProps & { tier: UserTier }> = ({
         >
           <span className={colors.icon}>{icon}</span>
           <span className="flex-1 font-medium">{text}</span>
+        </div>
+      </div>
+    );
+  }
+
+  // If feature is locked, show a disabled version
+  if (!isAvailable) {
+    return (
+      <div className="relative group">
+        <div className="flex items-center space-x-2 p-2 rounded-lg text-gray-400 opacity-60 cursor-not-allowed">
+          <span className="text-gray-400">{icon}</span>
+          <span className="flex-1 font-medium">{text}</span>
+          {expanded && (
+            <div className="p-1 rounded-full text-gray-400">
+              <ChevronDown size={16} />
+            </div>
+          )}
         </div>
       </div>
     );
@@ -149,13 +171,13 @@ const SidebarItem: React.FC<SidebarItemProps & { tier: UserTier }> = ({
 const getTierName = (tier: number): string => {
   switch (tier) {
     case 1:
-      return "Tier 1";
+      return "Basic";
     case 2:
-      return "Tier 2";
+      return "Pro";
     case 3:
-      return "Tier 3";
+      return "Enterprise";
     default:
-      return "Tier 1";
+      return "Basic";
   }
 };
 
@@ -265,11 +287,11 @@ export default function Sidebar() {
   // Get sidebar background color based on tier
   const getSidebarColor = () => {
     switch (currentTier) {
-      case UserTier.TIER_1: // Basic
+      case UserTier.TIER_1: // Chat Only
         return "bg-white";
-      case UserTier.TIER_2: // Pro
+      case UserTier.TIER_2: // Inventory Data
         return "bg-blue-50";
-      case UserTier.TIER_3: // Enterprise
+      case UserTier.TIER_3: // Full Integration
         return "bg-purple-50";
       default:
         return "bg-white";
@@ -304,15 +326,35 @@ export default function Sidebar() {
     }
   };
 
+  // Custom tier description
+  const getTierDescription = () => {
+    switch (currentTier) {
+      case UserTier.TIER_1:
+        return "Chat Only";
+      case UserTier.TIER_2:
+        return "Inventory Data";
+      case UserTier.TIER_3:
+        return "Full Integration";
+      default:
+        return "Basic";
+    }
+  };
+
   return (
     <div
       className={`w-64 ${getSidebarColor()} h-full flex flex-col border-r ${getBorderColor()} shadow-sm`}
     >
       {/* Logo */}
       <div
-        className={`flex items-center space-x-2 px-4 py-6 border-b ${getBorderColor()}`}
+        className={`flex items-center justify-between px-4 py-6 border-b ${getBorderColor()}`}
       >
         <span className={`${getLogoColor()} font-bold text-xl`}>AMS AI</span>
+        <div
+          className="text-xs font-medium px-2 py-1 rounded-md bg-opacity-80"
+          style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
+        >
+          {getTierDescription()}
+        </div>
       </div>
 
       {/* Navigation */}
@@ -323,6 +365,7 @@ export default function Sidebar() {
           href="/"
           tier={currentTier}
         />
+        {/* Chat functionality - Available to all tiers */}
         <SidebarItem
           icon={<MessageSquare size={18} />}
           text="AMS AI Chat"
@@ -334,41 +377,59 @@ export default function Sidebar() {
             { text: "History", href: "/chat/history" },
           ]}
         />
-        <SidebarItem
-          icon={<BarChart2 size={18} />}
-          text="Compare Products"
-          href="/compare-products"
-          expanded
-          tier={currentTier}
-        />
-        <SidebarItem
-          icon={<FileText size={18} />}
-          text="Request for Quote"
-          href="/request-quote"
-          expanded
-          tier={currentTier}
-        />
-        <SidebarItem
-          icon={<LineChart size={18} />}
-          text="Compare Quotes"
-          href="/compare-quotes"
-          expanded
-          tier={currentTier}
-        />
-        <SidebarItem
-          icon={<Settings size={18} />}
-          text="AI Agent"
-          href="/ai-agent"
-          expanded
-          tier={currentTier}
-        />
 
-        <div className={`pt-4 mt-4 border-t ${getBorderColor()}`}>
+        {/* Tier 2 and above features - Inventory based */}
+        <div className="pt-2 mt-2 border-t border-gray-200">
+          <div className="px-2 py-1 text-xs text-gray-500 font-medium">
+            {currentTier >= UserTier.TIER_2
+              ? "Inventory Data Features"
+              : "Inventory Data Features (Unavailable)"}
+          </div>
           <SidebarItem
             icon={<ShoppingCart size={18} />}
-            text="Inventory"
+            text="Inventory Management"
             href="/inventory"
             tier={currentTier}
+            requiredTier={UserTier.TIER_2}
+          />
+          <SidebarItem
+            icon={<BarChart2 size={18} />}
+            text="Compare Products"
+            href="/compare-products"
+            expanded
+            tier={currentTier}
+            requiredTier={UserTier.TIER_2}
+          />
+          <SidebarItem
+            icon={<ListOrdered size={18} />}
+            text="Hot List"
+            href="/hot-list"
+            tier={currentTier}
+            requiredTier={UserTier.TIER_2}
+          />
+        </div>
+
+        {/* Tier 3 features - Full Integration */}
+        <div className="pt-2 mt-2 border-t border-gray-200">
+          <div className="px-2 py-1 text-xs text-gray-500 font-medium">
+            {currentTier >= UserTier.TIER_3
+              ? "Full Integration Features"
+              : "Full Integration Features (Unavailable)"}
+          </div>
+          <SidebarItem
+            icon={<Settings size={18} />}
+            text="AI Agent"
+            href="/ai-agent"
+            expanded
+            tier={currentTier}
+            requiredTier={UserTier.TIER_3}
+          />
+          <SidebarItem
+            icon={<LineChart size={18} />}
+            text="Predictive Analytics"
+            href="/analytics"
+            tier={currentTier}
+            requiredTier={UserTier.TIER_3}
           />
           <SidebarItem
             icon={<RefreshCcw size={18} />}
@@ -376,22 +437,28 @@ export default function Sidebar() {
             href="/supply-exchange"
             expanded
             tier={currentTier}
+            requiredTier={UserTier.TIER_3}
             subItems={[
               { text: "Exchange list", href: "/supply-exchange/list" },
               { text: "Catalog", href: "/supply-exchange/catalog" },
               { text: "Requests", href: "/supply-exchange/requests" },
             ]}
           />
+        </div>
+
+        {/* Common features across all tiers */}
+        <div className="pt-2 mt-2 border-t border-gray-200">
+          <SidebarItem
+            icon={<FileText size={18} />}
+            text="Request for Quote"
+            href="/request-quote"
+            expanded
+            tier={currentTier}
+          />
           <SidebarItem
             icon={<MessageCircle size={18} />}
             text="Product Feedback"
             href="/product-feedback"
-            tier={currentTier}
-          />
-          <SidebarItem
-            icon={<ListOrdered size={18} />}
-            text="Hot List"
-            href="/hot-list"
             tier={currentTier}
           />
           <SidebarItem
