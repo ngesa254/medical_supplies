@@ -18,6 +18,7 @@ import {
   ChevronUp,
   ChevronDown,
   LogOut,
+  Upload,
 } from "lucide-react";
 import { useClerk, useUser } from "@clerk/nextjs";
 import { useTier } from "../context/TierContext";
@@ -385,6 +386,33 @@ export default function Sidebar() {
               ? "Inventory Data Features"
               : "Inventory Data Features (Unavailable)"}
           </div>
+
+          {currentTier < UserTier.TIER_2 && (
+            <div className="p-3 bg-blue-50 rounded-lg m-2 border border-blue-200">
+              <p className="text-xs text-blue-800 mb-2">
+                Upload your current supply stock spreadsheet to unlock Inventory
+                Data features.
+              </p>
+              <label
+                htmlFor="inventory-upload"
+                className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white text-sm py-2 px-3 rounded cursor-pointer transition-colors"
+              >
+                <FileText size={16} /> Upload Inventory Data
+              </label>
+              <input
+                id="inventory-upload"
+                type="file"
+                accept=".xlsx,.xls,.csv"
+                className="hidden"
+                onChange={(e) => {
+                  // Handle file upload logic here
+                  console.log("Inventory file uploaded:", e.target.files);
+                  // Then implement tier upgrade logic
+                }}
+              />
+            </div>
+          )}
+
           <SidebarItem
             icon={<ShoppingCart size={18} />}
             text="Inventory Management"
@@ -416,6 +444,41 @@ export default function Sidebar() {
               ? "Full Integration Features"
               : "Full Integration Features (Unavailable)"}
           </div>
+
+          {currentTier === UserTier.TIER_2 && (
+            <div className="p-3 bg-purple-50 rounded-lg m-2 border border-purple-200">
+              <p className="text-xs text-purple-800 mb-2">
+                Upload historical supply and purchase order data to unlock Full
+                Integration features or set up real-time integration.
+              </p>
+              <div className="space-y-2">
+                <label
+                  htmlFor="historical-data-upload"
+                  className="flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-600 text-white text-sm py-2 px-3 rounded cursor-pointer transition-colors"
+                >
+                  <FileText size={16} /> Upload Historical Data
+                </label>
+                <input
+                  id="historical-data-upload"
+                  type="file"
+                  accept=".xlsx,.xls,.csv"
+                  className="hidden"
+                  onChange={(e) => {
+                    // Handle file upload logic here
+                    console.log("Historical data uploaded:", e.target.files);
+                    // Then implement tier upgrade logic
+                  }}
+                />
+                <button
+                  className="flex items-center justify-center gap-2 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm py-2 px-3 rounded cursor-pointer transition-colors"
+                  onClick={() => router.push("/integration-setup")}
+                >
+                  <Settings size={16} /> Set Up Real-time Integration
+                </button>
+              </div>
+            </div>
+          )}
+
           <SidebarItem
             icon={<Settings size={18} />}
             text="AI Agent"
