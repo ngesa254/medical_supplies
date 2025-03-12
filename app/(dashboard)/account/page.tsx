@@ -263,17 +263,14 @@ export default function AccountPage() {
               <div className="text-right">
                 {currentTier === UserTier.TIER_1 && (
                   <p className="text-xl font-semibold text-gray-900">
-                    $0<span className="text-sm text-gray-500">/month</span>
                   </p>
                 )}
                 {currentTier === UserTier.TIER_2 && (
                   <p className="text-xl font-semibold text-gray-900">
-                    $299<span className="text-sm text-gray-500">/month</span>
                   </p>
                 )}
                 {currentTier === UserTier.TIER_3 && (
                   <p className="text-xl font-semibold text-gray-900">
-                    $999<span className="text-sm text-gray-500">/month</span>
                   </p>
                 )}
               </div>
@@ -469,20 +466,7 @@ export default function AccountPage() {
                     <Check size={18} className="text-green-500 mx-auto" />
                   </td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Monthly Price
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center font-medium">
-                    $0
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center font-medium">
-                    $299
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center font-medium">
-                    $999
-                  </td>
-                </tr>
+               
                 <tr>
                   <td className="px-6 py-4"></td>
                   <td className="px-6 py-4 text-center">
