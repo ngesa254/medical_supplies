@@ -60,7 +60,7 @@ export default function Dashboard() {
       alternativePrice: "$15 - $19",
       potentialSavings: "$1,243 - $1,989",
       potentialSavingsPercentage: 20,
-      image: "/product1.jpg",
+      image: "gloves1.jpg",
     },
     {
       id: "2",
@@ -71,7 +71,7 @@ export default function Dashboard() {
       alternativePrice: "$42 - $44",
       potentialSavings: "$10,243 - $12,200",
       potentialSavingsPercentage: 10,
-      image: "/product2.jpg",
+      image: "gloves1.jpg",
     },
     // Add more items as needed
   ];
@@ -85,7 +85,7 @@ export default function Dashboard() {
       price: 15,
       required: 1272,
       couldSave: "20%",
-      image: "/product1.jpg",
+      image: "/gloves1.jpg",
     },
     {
       id: "2",
@@ -95,9 +95,8 @@ export default function Dashboard() {
       price: 42,
       required: 2152,
       couldSave: "10%",
-      image: "/product2.jpg",
+      image: "/gloves1.jpg",
     },
-    // Add more items as needed
   ];
 
   return (

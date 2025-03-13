@@ -12,6 +12,7 @@ function AuthRedirect({ children }) {
 
   // Protected routes that require authentication
   const protectedRoutes = [
+    '/',
     "/account",
     "/chat",
     "/compare-quotes",
@@ -22,7 +23,7 @@ function AuthRedirect({ children }) {
   ];
 
   // Public routes that don't require auth
-  const publicRoutes = ["/sign-in", "/sign-up", "/"];
+  const publicRoutes = ["/sign-in", "/sign-up", ];
 
   useEffect(() => {
     if (!isLoaded) return;
