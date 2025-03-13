@@ -16,7 +16,7 @@ import {
 import { useUser } from "@clerk/nextjs";
 
 export default function AccountPage() {
-  const { currentTier, setTier, getTierName } = useTier();
+  const { currentTier, getTierName, setTier } = useTier();
   const { user, isLoaded } = useUser();
   const [joinDate, setJoinDate] = useState("");
   const [lastLogin, setLastLogin] = useState("");
