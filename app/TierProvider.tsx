@@ -3,7 +3,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 
-// Enum for user tiers (same as in your sidebar component)
 export enum UserTier {
   TIER_1 = 1, // Basic - Chat Only
   TIER_2 = 2, // Pro - Inventory Data
