@@ -5,6 +5,7 @@ import supabase from "@/lib/supabase";
 export async function POST(req: NextRequest) {
   try {
     const { userId } = await auth();
+    console.log("User ID:", userId);
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -23,6 +24,8 @@ export async function POST(req: NextRequest) {
     const fileName = `inventory-${userId}-${Date.now()}.${file.name
       .split(".")
       .pop()}`;
+    
+    console.log("Uploading file:", fileName); 
 
     const { error: uploadError } = await supabase.storage
       .from("inventory-uploads")

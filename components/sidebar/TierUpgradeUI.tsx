@@ -160,7 +160,7 @@ export const TierUpgradeUI: React.FC<TierUpgradeUIProps> = ({
             label="Upload Historical Data"
             onUpload={handleHistoricalUpload}
             isUploading={uploadingHistorical}
-            color="purple"
+            color="blue"
           />
           <button
             className="flex items-center justify-center gap-2 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm py-2 px-3 rounded cursor-pointer transition-colors"
