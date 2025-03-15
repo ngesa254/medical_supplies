@@ -16,7 +16,7 @@ import {
 import { useUser } from "@clerk/nextjs";
 
 export default function AccountPage() {
-  const { currentTier, getTierName, setTier } = useTier();
+  const { currentTier, getTierName } = useTier();
   const { user, isLoaded } = useUser();
   const [joinDate, setJoinDate] = useState("");
   const [lastLogin, setLastLogin] = useState("");
@@ -70,10 +70,6 @@ export default function AccountPage() {
     }
   }, [isLoaded, user]);
 
-  const handleTierChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newTier = parseInt(event.target.value) as UserTier;
-    setTier(newTier);
-  };
 
   const getBadgeColor = (tier: UserTier) => {
     switch (tier) {
@@ -279,12 +275,12 @@ export default function AccountPage() {
             {/* Demo Tier Selector */}
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
               <h4 className="text-sm font-medium text-gray-800 mb-2">
-                Demo: Change Data Integration Level
+               Your Data Integration Level
               </h4>
               <div className="relative">
                 <select
                   value={currentTier}
-                  onChange={handleTierChange}
+                  
                   className="appearance-none block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value={UserTier.TIER_1}>
@@ -301,9 +297,7 @@ export default function AccountPage() {
                   <ChevronDown size={16} />
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mt-2">
-                This is for demonstration purposes only.
-              </p>
+             
             </div>
 
             {currentTier < UserTier.TIER_3 && (

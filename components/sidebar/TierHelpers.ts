@@ -24,7 +24,7 @@ export const updateToTier2 = async (): Promise<boolean> => {
 
 export const updateToTier3 = async (): Promise<boolean> => {
   try {
-    const response = await fetch("/api/update-tier", {
+    const response = await fetch("/api/users/update-tier", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
