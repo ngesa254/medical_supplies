@@ -41,7 +41,7 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
       <SidebarItem
         icon={<MessageSquare size={18} />}
         text="AMS AI Chat"
-        href="/chat"
+        href="/chat/new"
         expanded
         tier={currentTier}
         subItems={[
