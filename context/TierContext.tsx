@@ -25,6 +25,8 @@ export const TierProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { user, isLoaded } = useUser();
+
+  console.log("user", user);
   const [currentTier, setCurrentTier] = useState<UserTier>(UserTier.TIER_1);
   const [isUpdatingTier, setIsUpdatingTier] = useState(false);
   const [tierUpdateError, setTierUpdateError] = useState<string | null>(null);
