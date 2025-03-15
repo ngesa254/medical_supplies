@@ -75,17 +75,17 @@ export const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
           icon={<BarChart2 size={18} />}
           text="Compare Products"
           href="/compare-products"
-          expanded
+          
           tier={currentTier}
           requiredTier={UserTier.TIER_2}
         />
-        <SidebarItem
+        {/* <SidebarItem
           icon={<ListOrdered size={18} />}
           text="Hot List"
           href="/hot-list"
           tier={currentTier}
           requiredTier={UserTier.TIER_2}
-        />
+        /> */}
       </div>
 
       {/* Tier 3 features - Full Integration */}
