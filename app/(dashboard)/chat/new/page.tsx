@@ -435,7 +435,7 @@ export default function ChatPage() {
           <div className="relative">
             <input
               type="text"
-              placeholder="Ask anything"
+              placeholder="Ask me about Defibrillators"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
