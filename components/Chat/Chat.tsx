@@ -196,6 +196,8 @@ export default function Chat({ onFileUpload }: ChatProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const photoInputRef = useRef<HTMLInputElement>(null);
 
+  console.log("uploadedFiles", uploadedFiles);
+
   const handleSend = () => {
     const trimmed = message.trim();
     if (!trimmed) return;

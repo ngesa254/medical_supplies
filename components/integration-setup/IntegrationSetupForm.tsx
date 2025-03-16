@@ -12,30 +12,30 @@ export const IntegrationSetupForm = () => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [integrationSystem, setIntegrationSystem] = useState("");
-  const [selectedIntegrationType, setSelectedIntegrationType] = useState("api");
-  const [testingConnection, setTestingConnection] = useState(false);
-  const [testConnectionSuccess, setTestConnectionSuccess] = useState(false);
+  // const [selectedIntegrationType, setSelectedIntegrationType] = useState("api");
+  // const [testingConnection, setTestingConnection] = useState(false);
+  // const [testConnectionSuccess, setTestConnectionSuccess] = useState(false);
 
   const handleNextStep = () => {
     setCurrentStep(currentStep + 1);
   };
 
-  const handlePreviousStep = () => {
-    setCurrentStep(currentStep - 1);
-  };
+  // const handlePreviousStep = () => {
+  //   setCurrentStep(currentStep - 1);
+  // };
 
-  const handleTestConnection = () => {
-    setTestingConnection(true);
-    // Simulate a connection test
-    setTimeout(() => {
-      setTestingConnection(false);
-      setTestConnectionSuccess(true);
-    }, 2000);
-  };
+  // const handleTestConnection = () => {
+  //   setTestingConnection(true);
+  //   // Simulate a connection test
+  //   setTimeout(() => {
+  //     setTestingConnection(false);
+  //     setTestConnectionSuccess(true);
+  //   }, 2000);
+  // };
 
-  const handleFinish = () => {
-    router.push("/");
-  };
+  // const handleFinish = () => {
+  //   router.push("/");
+  // };
 
   return (
     <div className="container max-w-5xl py-10">

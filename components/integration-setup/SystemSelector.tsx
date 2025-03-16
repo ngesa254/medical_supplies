@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import Dropdown, { DropdownOption } from "../ui/Dropdown";
+// import Dropdown, { DropdownOption } from "../ui/Dropdown";
 
 interface SystemSelectorProps {
   integrationSystem: string;
@@ -11,20 +11,19 @@ interface SystemSelectorProps {
 
 const SystemSelector: React.FC<SystemSelectorProps> = ({
   integrationSystem,
-  setIntegrationSystem,
   onCancel,
   onNext,
 }) => {
-  const systemOptions: DropdownOption[] = [
-    { label: "Epic Systems", value: "epic" },
-    { label: "Cerner", value: "cerner" },
-    { label: "MEDITECH", value: "meditech" },
-    { label: "Allscripts", value: "allscripts" },
-    { label: "Oracle Health", value: "oracle" },
-    { label: "SAP Healthcare", value: "sap" },
-    { label: "McKesson", value: "mckesson" },
-    { label: "Other", value: "other" },
-  ];
+  // const systemOptions: DropdownOption[] = [
+  //   { label: "Epic Systems", value: "epic" },
+  //   { label: "Cerner", value: "cerner" },
+  //   { label: "MEDITECH", value: "meditech" },
+  //   { label: "Allscripts", value: "allscripts" },
+  //   { label: "Oracle Health", value: "oracle" },
+  //   { label: "SAP Healthcare", value: "sap" },
+  //   { label: "McKesson", value: "mckesson" },
+  //   { label: "Other", value: "other" },
+  // ];
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
@@ -45,12 +44,12 @@ const SystemSelector: React.FC<SystemSelectorProps> = ({
             >
               System
             </label>
-            <Dropdown
+            {/* <Dropdown
               options={systemOptions}
               value={integrationSystem}
               onChange={setIntegrationSystem}
               placeholder="Select your inventory system"
-            />
+            /> */}
           </div>
 
           {integrationSystem === "other" && (

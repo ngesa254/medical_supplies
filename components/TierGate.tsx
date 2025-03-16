@@ -1,5 +1,4 @@
 import React from "react";
-import { useTier } from "../context/TierContext";
 import { UserTierFeatures } from "../types/auth";
 
 interface TierGateProps {
@@ -9,15 +8,14 @@ interface TierGateProps {
 }
 
 export const TierGate: React.FC<TierGateProps> = ({
-  feature,
-  children,
+
   fallback,
 }) => {
-  const { canAccess } = useTier();
+  // const { canAccess } = useTier();
 
-  if (canAccess(feature)) {
-    return <>{children}</>;
-  }
+  // if (canAccess(feature)) {
+  //   return <>{children}</>;
+  // }
 
   if (fallback) {
     return <>{fallback}</>;

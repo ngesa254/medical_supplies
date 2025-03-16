@@ -12,11 +12,11 @@ export const UpgradeBanner: React.FC<UpgradeBannerProps> = ({
   requiredFeature,
   message,
 }) => {
-  const { canAccess, currentTier, getTierName, upgradeTier } = useTier();
+  const { getTierName } = useTier();
 
-  if (canAccess(requiredFeature)) {
-    return null;
-  }
+  // if (canAccess(requiredFeature)) {
+  //   return null;
+  // }
 
   // Find the minimum tier that has this feature
   let requiredTier = UserTier.TIER_1;

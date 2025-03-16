@@ -11,6 +11,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
+import Image from "next/image";
 
 export default function AccountPage() {
   const { currentTier, getTierName } = useTier();
@@ -168,7 +169,7 @@ export default function AccountPage() {
           <div className="p-6">
             <div className="flex items-center space-x-4">
               {imageUrl ? (
-                <img
+                <Image
                   src={imageUrl}
                   alt={fullName}
                   className="w-16 h-16 rounded-full object-cover"

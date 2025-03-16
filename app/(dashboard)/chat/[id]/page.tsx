@@ -67,6 +67,7 @@ const DefibrillatorComparison = ({
       if (match) {
         const [_, number, name, description] = match;
 
+        console.log(_,number, name, description);
         // Parse price
         const priceMatch = description.match(/\$[\d,]+/);
         const price = priceMatch ? priceMatch[0] : "Price not specified";
@@ -247,6 +248,8 @@ export default function ChatPage() {
 
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
+
+      console.error("Error processing request:", error);
       const errorMessage = {
         type: "error",
         content: "Sorry, there was an error processing your request.",
