@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import ProgressIndicator from "./ProgressIndicator";
 import SystemSelector from "./SystemSelector";
-import IntegrationTypeSelector from "./IntegrationTypeSelector";
-import ConnectionConfiguration from "./ConnectionConfiguration";
-import ConnectionVerification from "./ConnectionVerification";
+// import IntegrationTypeSelector from "./IntegrationTypeSelector";
+// import ConnectionConfiguration from "./ConnectionConfiguration";
+// import ConnectionVerification from "./ConnectionVerification";
 
 export const IntegrationSetupForm = () => {
   const router = useRouter();
@@ -61,7 +61,7 @@ export const IntegrationSetupForm = () => {
         />
       )}
 
-      {currentStep === 2 && (
+      {/* {currentStep === 2 && (
         <IntegrationTypeSelector
           selectedIntegrationType={selectedIntegrationType}
           setSelectedIntegrationType={setSelectedIntegrationType}
@@ -87,8 +87,8 @@ export const IntegrationSetupForm = () => {
           onTestConnection={handleTestConnection}
           onBack={handlePreviousStep}
           onFinish={handleFinish}
-        />
-      )}
+        /> 
+      )}*/}
     </div>
   );
 };
