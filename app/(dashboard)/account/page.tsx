@@ -5,9 +5,6 @@ import { useTier } from "@/context/TierContext";
 import { UserTier } from "@/types/auth";
 import {
   ChevronDown,
-  CreditCard,
-  Shield,
-  Zap,
   Check,
   Database,
   Server,

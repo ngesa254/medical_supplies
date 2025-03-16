@@ -11,7 +11,6 @@ import {
   RefreshCcw,
   MessageCircle,
   LineChart,
-  ListOrdered,
   User,
 } from "lucide-react";
 import { SidebarItem } from "./SidebarItem";

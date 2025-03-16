@@ -8,9 +8,6 @@ import {
   X, 
   Plus,
   Check,
-  SlidersHorizontal,
-  BarChart,
-  ArrowRight,
   Info
 } from "lucide-react";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Settings, FileText, AlertCircle, CheckCircle } from "lucide-react";
+import { Settings} from "lucide-react";
 import { UserTier } from "../../types/auth";
 import { useRouter } from "next/navigation";
 import { FileUploader } from "./FileUploader";

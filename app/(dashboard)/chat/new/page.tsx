@@ -370,18 +370,7 @@ export default function ChatPage() {
 
                     {/*  */}
                     <DefibrillatorComparison
-                      responseText={`Based on your request for defibrillator quotes, here are the most affordable options currently available:
-1. **Philips HeartStart OnSite AED**: $1,299. Semi-automatic operation with clear voice instructions. Features intuitive design for ease of use. Includes daily self-tests for reliability.
-
-2. **ZOLL AED Plus**: $1,695. Fully automatic version available. Features real-time CPR feedback technology. Includes long-life batteries for cost-effective maintenance.
-
-3. **Cardiac Science Powerheart G5**: $1,895. Fully Automatic operation with escalating energy. Features RescueCoach voice prompts for user guidance. Includes daily, weekly and monthly self-tests.
-
-4. **Defibtech Lifeline VIEW AED**: $1,795. Semi-automatic with video instructions. Features a large, full-color display for visual guidance. Includes lightweight and portable design for easy transport.
-
-5. **Physio-Control LIFEPAK CR2**: $2,095. Fully Automatic with bilingual capabilities. Features cprINSIGHT analysis technology. Includes connectivity options for AED program management.
-
-It is important to note that all AEDs require regular maintenance, including battery and pad replacements according to manufacturer guidelines. Professional training is recommended for all potential users, though these devices are designed to be operated by laypeople in emergency situations.`}
+                      responseText={message.content}
                     />
                   </>
                 ) : (

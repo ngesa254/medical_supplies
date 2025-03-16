@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import { useClerk } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 import { useTier } from "../context/TierContext";
 import { UserTier } from "../types/auth";
 import { SidebarHeader } from "./sidebar/SidebarHeader";

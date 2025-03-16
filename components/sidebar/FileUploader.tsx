@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FileText, AlertCircle, CheckCircle } from "lucide-react";
+import React from "react";
+import { FileText } from "lucide-react";
 
 interface FileUploaderProps {
   id: string;

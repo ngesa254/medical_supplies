@@ -5,11 +5,9 @@ import { useRouter } from "next/navigation";
 import {
   Clock,
   Search,
-  Calendar,
   MessageSquare,
   ChevronRight,
   Filter,
-  User,
 } from "lucide-react";
 
 interface ChatHistoryItem {
